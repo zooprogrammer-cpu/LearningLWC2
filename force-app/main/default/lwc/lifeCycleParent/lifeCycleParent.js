@@ -8,4 +8,7 @@ export default class LifeCycleParent extends LightningElement {
     connectedCallback(){
         console.log("parent connectedCallback called")
     }
+    renderedCallback(){
+        console.log("parent renderedCallback called")
+    }
 }
