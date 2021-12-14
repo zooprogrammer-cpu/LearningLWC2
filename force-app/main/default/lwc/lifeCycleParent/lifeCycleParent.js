@@ -11,4 +11,8 @@ export default class LifeCycleParent extends LightningElement {
     renderedCallback(){
         console.log("parent renderedCallback called")
     }
+    // name //create a property called name
+    // changeHadnler(event){
+    //     this.name = event.target.value
+    // }
 }
