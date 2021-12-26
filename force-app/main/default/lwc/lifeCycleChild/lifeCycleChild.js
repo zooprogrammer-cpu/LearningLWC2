@@ -1,14 +1,18 @@
 import { LightningElement } from 'lwc';
 
 export default class LifeCycleChild extends LightningElement {
-    constructor(){
+    constructor(){ 
         super()
-        console.log('Child constructor called')
+        console.log("Child constructor called")
     }
-    connectedCallback(){
+    connectedCallback(){ 
         console.log("Child connectedCallback called")
     }
-    renderedCallback(){
+    renderedCallback(){ 
         console.log("Child renderedCallback called")
     }
+    disconnectedCallback(){
+       alert('Child disconnectedCallback called !!') 
+    }
+
 }
