@@ -2,7 +2,10 @@ import { LightningElement } from 'lwc';
 
 export default class C2pParentComponent extends LightningElement {
     showModal = false
-    clickHandler(event){
-        this.showModal=true;
+    clickHandler(){ 
+        this.showModal = true
+    }
+    closeHandler(){ 
+        this.showModal = false
     }
 }
