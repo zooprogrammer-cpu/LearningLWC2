@@ -6,7 +6,7 @@
     <div>What is your age?</div>
     <div><slot name="second"></slot></div>
 
-    <footer class="slds-card__footer">
-        <slot name="footer"></slot>
+    <footer class="slds-card__footer slds-hide">
+        <slot name="footer" onslotchange={handleFooterChange}></slot>
     </footer>
     </template>
