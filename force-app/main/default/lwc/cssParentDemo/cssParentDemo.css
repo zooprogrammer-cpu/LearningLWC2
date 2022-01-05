@@ -1,9 +1,13 @@
 h1{
-    font-size: 36px;
-    color: red;
+    font-size: 30px;
+    color:red;
 }
 /* c-css-child-demo{
     display: block;
     background-color: green;
-    color: white; 
+    color:white;
 } */
+p{
+    font-size: 20px;
+    color:yellow;
+}
