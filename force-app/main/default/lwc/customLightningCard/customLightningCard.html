@@ -6,22 +6,22 @@
                 <div class="slds-media__body">
                     <h2 class="slds-card__header-title">
                         <div class="slds-card__header-link slds-truncate">
-                            Header will come here                        
+                            <slot name="title"></slot>
                         </div>
                     </h2>
                 </div>
                 <div class="slds-no-flex">
-                    <button class="slds-button slds-button_neutral">Action</button>
+                    <slot name="actions"></slot>
                 </div>
             </header>
         </div>
         <!-- Body     -->
         <div class="slds-card__body">
-                Body comes here
+            <slot></slot>      
         </div>
         <!-- Footer -->
         <footer class="slds-card_footer">
-                Here is the footer
+            <slot name="footer"></slot>
         </footer>
     </article>
 </template>
