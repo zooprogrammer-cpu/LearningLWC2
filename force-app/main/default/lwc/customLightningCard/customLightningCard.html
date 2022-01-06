@@ -20,8 +20,8 @@
             <slot></slot>      
         </div>
         <!-- Footer -->
-        <footer class="slds-card_footer">
-            <slot name="footer"></slot>
+        <footer class="slds-card_footer slds-hide">
+            <slot name="footer" onslotchange={handleSlotFooterChange}></slot>
         </footer>
     </article>
 </template>
