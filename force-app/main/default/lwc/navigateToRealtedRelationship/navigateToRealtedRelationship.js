@@ -1,12 +1,13 @@
-import { LightningElement } from 'lwc';
+import { LightningElement,api } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation'
 
 export default class NavigateToRealtedRelationship extends NavigationMixin(LightningElement) {
+    @api recordId
     navigateToRelatedList(){
         this[NavigationMixin.Navigate]({
             type:'standard__recordRelationshipPage',
             attributes:{
-                recordId:'0015f00000JSJQ7AAP',
+                recordId:this.recordId,
                 objectApiName:'Account',
                 relationshipApiName:'Contacts',
                 actionName:'view'
