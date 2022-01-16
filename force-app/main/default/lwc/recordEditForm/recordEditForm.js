@@ -26,4 +26,13 @@ export default class RecordEditForm extends LightningElement {
         })
         this.dispatchEvent(toastEvent)
     }
+
+    handleReset(){
+        const inputFields = this.template.querySelectorAll('lightning-input-field')
+        if(inputFields){
+            Array.from(inputFields).forEach(fields=>{
+                fields.reset()
+            })
+        }
+    }
 }
