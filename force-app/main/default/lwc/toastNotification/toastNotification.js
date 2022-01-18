@@ -28,7 +28,8 @@ export default class ToastNotification extends LightningElement {
                     url:'https://www.google.com',
                     label:'Click here'
                 }
-            ]
+            ],
+            mode:'sticky'
 
             
         })
