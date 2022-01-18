@@ -3,7 +3,7 @@ import {ShowToastEvent} from 'lightning/platformShowToastEvent';
 
 export default class ToastNotification extends LightningElement {
     toastHandler(){
-        this.showToast("Success","Account Created","success")
+        this.showToast("Success","{0} Account Created {1}","success")
     }
 
     toastHandlerError(){
@@ -22,7 +22,15 @@ export default class ToastNotification extends LightningElement {
         const evt = new ShowToastEvent({
             title: title,
             message: message,
-            variant: variant
+            variant: variant,
+            messageData:[
+                'Google',{
+                    url:'https://www.google.com',
+                    label:'Click here'
+                }
+            ]
+
+            
         })
         this.dispatchEvent(evt)
     }
