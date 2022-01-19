@@ -16,4 +16,8 @@ export default class WireDemoUserDetail extends LightningElement {
       }
     }
 
+    @wire(getRecord, {recordId:'0055f000003n3UJ', fields:['User.Name','User.Email']})
+    userDetailProperty
+
+
 }
