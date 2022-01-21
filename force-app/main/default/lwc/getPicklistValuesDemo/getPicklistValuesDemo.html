@@ -12,5 +12,19 @@
 
         <p>Selected value is: {selectedIndustry}</p>    
     </lightning-card>
+    <lightning-card title="getPicklistValues Type Demo">
+        <div class="slds-var-p-around_medium"></div>
+            <lightning-combobox
+                name="Type"
+                label="Type"
+                value={selectedType}
+                placeholder="Select Type"
+                options={typeOptions}
+                onchange={handleTypeChange} >
+            </lightning-combobox>
+
+        <p>Selected value is: {selectedType}</p>    
+    </lightning-card>
+
 
 </template>
