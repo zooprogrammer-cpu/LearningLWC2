@@ -8,5 +8,13 @@ public with sharing class AccountController {
     public static List<Account> filterAccountTypeType(String type){
         return [SELECT id, Name, Type, Industry from Account where Type=:type LIMIT 5];
     }
+
+    @AuraEnabled(cacheable=true) 
+    public static List<Account> findAccounts(String searchKey){
+        String key ='%' + searchKey + '%';
+
+        return [SELECT id, Name, Type, Industry from Account
+        WHERE Name LIKE:key LIMIT 5];
+    }
     
 }
