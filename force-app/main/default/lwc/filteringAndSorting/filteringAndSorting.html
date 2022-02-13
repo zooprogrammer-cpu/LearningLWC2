@@ -1,6 +1,11 @@
 <template>
     <lightning-card title="Client Side Filtering in LWC">
         <div class="slds-p-around_medium">
+            <lightning-layout>
+                <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input type="text" label="Filter" onkeyup={filterHandler}></lightning-input>
+                </lightning-layout-item>                  
+            </lightning-layout>
             <table>
                 <thead>
                     <tr>
