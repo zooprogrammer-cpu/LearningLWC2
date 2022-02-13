@@ -1,7 +1,25 @@
 <template>
     <lightning-card title="Client Side Filtering in LWC">
         <div class="slds-p-around_medium">
-            Your table will come here
+            <table>
+                <thead>
+                    <tr>
+                        <template for:each={headings} for:item="heading">
+                            <th key={heading}>{heading}</th>
+                        </template> 
+                    </tr>
+                </thead>
+                <body>
+                    <template for:each={filteredData} for:item="data">
+                        <tr key={data.id}>
+                            <td>{data.Id}</td>
+                            <td>{data.Name}</td>
+                            <td>{data.Title}</td>
+                            <td>{data.Email}</td>
+                        </tr>
+                    </template>     
+                </body>
+            </table>    
         </div>
     </lightning-card>
 </template>
