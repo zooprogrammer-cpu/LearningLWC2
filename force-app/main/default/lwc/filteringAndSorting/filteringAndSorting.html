@@ -9,7 +9,7 @@
                         </template> 
                     </tr>
                 </thead>
-                <body>
+                <tbody>
                     <template for:each={filteredData} for:item="data">
                         <tr key={data.id}>
                             <td>{data.Id}</td>
@@ -18,7 +18,7 @@
                             <td>{data.Email}</td>
                         </tr>
                     </template>     
-                </body>
+                </tbody>
             </table>    
         </div>
     </lightning-card>
