@@ -1,20 +1,23 @@
-import { LightningElement,wire } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import getContactList from '@salesforce/apex/ContactController.getContactList'
-export default class FilteringAndSorting extends LightningElement {
+export default class FilteringAndSortingDemo extends LightningElement {
     headings=["Id", "Name", "Title", "Email"]
-    fullTableData = [] // store the complete data in this empty array
-    filteredData = []  //store the filtered data in this empty array
+    fullTableData=[]
+    filteredData=[]
     timer
     filterBy="Name"
+
+    sortedBy = 'Name'
+    sortDirection='asc'
     @wire(getContactList)
-    contactHandler({data,error}){
-        if (data){
+    contactHandler({data, error}){
+        if(data){
             console.log(data)
             this.fullTableData = data
-            this.filteredData = data
+            this.filteredData= [...this.sortBy(data)] //this sorts by name as soon as the page loads 
         }
-        if (error){
-            console.error(error)
+        if(error){
+            console.log(error)
         }
     }
 
@@ -22,10 +25,17 @@ export default class FilteringAndSorting extends LightningElement {
         return [
             {label:"All", value:'All'},
             {label:"Id", value:'Id'},
-            {label:"Name", value:'Name'},
-            {label:"Title", value:'Title'},
-            {label:"Email", value:'Email'},
-
+            {label:'Name', value:'Name'},
+            {label:'Title', value:'Title'},
+            {label:'Email', value:'Email'}
+        ]
+    }
+    get sortByOptions(){
+        return [
+            {label:"Id", value:'Id'},
+            {label:'Name', value:'Name'},
+            {label:'Title', value:'Title'},
+            {label:'Email', value:'Email'}
         ]
     }
 
@@ -34,30 +44,48 @@ export default class FilteringAndSorting extends LightningElement {
     }
 
     filterHandler(event){
-        const{value} = event.target
+        const {value} = event.target
         window.clearTimeout(this.timer)
         if(value){
-            this.timer = window.setTimeout(()=>{ //adding delay fore debounce technique to the input field
+            this.timer = window.setTimeout(()=>{
                 console.log(value)
                 this.filteredData = this.fullTableData.filter(eachObj=>{
                     if(this.filterBy === 'All'){
-                      /**Below is the logic that will filter each and every property of object */
-                    //Note: This isObject.keys(eachObj) = ["Id", "Name", "Title", "Email"]
+                        /**Below logic will filter each and every property of object */
                         return Object.keys(eachObj).some(key=>{
                             return eachObj[key].toLowerCase().includes(value)
                         })
-                    }else{
-                        /**Below is the logic that will filter only selected filterBy */
-                        const val =  eachObj[this.filterBy]? eachObj[this.filterBy]:''   
+                    } else {
+                         /**Below logic will filter only selected fields */
+                        const val = eachObj[this.filterBy] ? eachObj[this.filterBy]:''
                         return val.toLowerCase().includes(value)
                     }
                 })
-            },500)
+            }, 500)
+            
+        } else {
+            this.filteredData = [...this.fullTableData]
         }
-        else{
-            this.filteredData = [...this.fullTableData] //show all data if there is no value in 
-        }
-      
+        
+    }
+
+    /****sorting logic */
+    sortHandler(event){
+        this.sortedBy = event.target.value
+        this.filteredData = [...this.sortBy(this.filteredData)] //pass the data and sortBy gets called
+    }
+
+    sortBy(data){
+        const cloneData = [...data]
+        cloneData.sort((a,b)=>{ //callback function takes a and b
+            if(a[this.sortedBy] === b[this.sortedBy]){ //checks if both values are same
+                return 0
+            }
+            return this.sortDirection === 'desc' ? 
+            a[this.sortedBy] > b[this.sortedBy] ? -1:1 :
+            a[this.sortedBy] < b[this.sortedBy] ? -1:1
+        })
+        return cloneData
     }
 
 }
