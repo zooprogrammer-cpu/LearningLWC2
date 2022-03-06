@@ -1,3 +1,3 @@
-import {saveFile, openFile} from './modules/parent-module.js'
-saveFile()
-openFile()
+import * as utilities from './modules/parent-module.js'
+utilities.saveFile()
+utilities.openFile()
