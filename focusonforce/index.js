@@ -2,7 +2,7 @@
 // utilities.saveFile()
 // utilities.openFile()
 
-import {num,add} from './lib.js'; 
+import {num,add} from '../lib.js'; 
 console.log(`Before adding`,num)
 add()
 console.log(`After adding`, num)
