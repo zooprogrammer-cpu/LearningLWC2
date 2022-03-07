@@ -1,13 +1,11 @@
-function displayName(name){
-    console.log(name);
+
+var globalKey ="fsdff"
+function decryptDate(data){
+    var key ="adfsdfaeffv&*&#"
+    console.log(key)
+    console.log(globalKey)
 }
 
-function displayNameDecorator(fn){
-    return function(name){
-        const str = `Welcome to the hotel, ${name}`;
-        fn (str);
-    }
-}
-
-const customerName = displayNameDecorator(displayName);
-customerName(`John Wayne`);
+decryptDate()
+console.log(globalKey)
+console.log(key)
