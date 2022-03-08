@@ -24,3 +24,20 @@ function onClickItem(event){
     console.log(`Captured text:${text}`)
 }
 document.querySelector('ol').addEventListener('click',onClickItem)
+
+//Example of an anonymous event listener
+let button = document.querySelector('button');
+button.addEventListener('click',function(e){
+    console.log('Timer starts now...')
+});
+
+//Example of named event listener
+
+function startTimer(){
+    console.log('Timer starts now..')
+}
+button.addEventListener('click',startTimer); 
+
+
+// A named listener allows it to be easily removed using removeEnveListener();
+button.removeEventListener('click',startTimer)
