@@ -1,16 +1,15 @@
-function setVariables(){
-    let maxVisitors = 1000; //set a local variable
-    window.minVisitors = 25; // set a global variable
-}
+const msg = document.getElementById('message');
+msg.innerHTML = '<span>Good Morning</span>';
 
-let [userid,timestamp] = [15,1606801541];
-let state ={id: userid, ts:timestamp};
-let url ="?id=" + userid +'&ts=' + timestamp; 
-//push an entry to the browser's history stack
-window.history.pushState(state,'', url);
+//The following properties and attributes are available in the DOM element
 
-setVariables();
-console.log('this=== window:', this === window);
-console.log('minVisitors:', minVisitors);
-console.log('this.minVisitors:', this.minVisitors);
-console.log('maxVisitors:', maxVisitors);
+console.log(msg.tagName); //tag name of the element
+console.log(msg.innerHTML); //HTML content of the element
+console.log(msg.classList); //class attributes of the element
+
+//retreive the value of a specified attribute
+console.log(msg.getAttribute('id'));
+//retreive the size and position relative to the viewport
+console.log(msg.getBoundingClientRect());
+
+
