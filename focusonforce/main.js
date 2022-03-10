@@ -1,4 +1,6 @@
-const msg = document.querySelector('#message'); 
-msg.innerHTML = '<h1> Good Morning</h1>';
+const paragraphs = document.querySelectorAll('p'); 
+for(let elem of paragraphs){
+    elem.style.color ='red';
+}
 
 
