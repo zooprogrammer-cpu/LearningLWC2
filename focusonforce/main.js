@@ -1,26 +1,11 @@
-window.onpopstate= function(event){
-    document.getElementById('message').innerHTML = `You are here:${document.location}, state:${JSON.stringify(event.state)}`;
-}
-const backward=()=>{ //Navigate backward one step in the history stack or use history.go(-1)
-    history.back();
-}
-const forward =()=>{ //Navigate forward one step in the history stack or use history.go(1)
-    history.forward(); 
-}
-
-//Replace the top page of history stack with this page by calling the replaceState() method of the hostory object
-const replace=()=>{
-    history.replaceState(
-        {page:3},  //a JavaScript object that represents the state of a page
-        "Page 3",  //the page title
-        "?page=3") //the page URL which replaces the top of the history stack 
-    
-}
-//Push a page to the history stack by calling the pushState() method of the history object
-const push =(state,title,url)=>{
-    history.pushState(
-            state,  //a JavaScript object that represents the state of a page
-            title,  // the page title
-            url);   // the page URL that is added to the history stack
-        
-}
+const canvas = document.getElementById('myCanvas'); //get the canvas element
+let ctx = canvas.getContext('2d');   //get the canvas drawing context
+ctx.strokeStyle ='green';           // set the color
+ctx.lineWidth =10;                //set the line width
+ctx.strokeRect(10,10,150,100);
+ctx.strokeStyle ='blue';          //change the color
+ctx.lineWidth =5;                 //change the line width
+ctx.strokeRect(50,100,50,150);    //render a blue rectangle at a new position
+ctx.strokeStyle='red';    //change the color
+ctx.lineWidth =15;            //change the line width
+ctx.strokeRect(120,50,150,200);
