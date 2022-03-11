@@ -1,30 +1,32 @@
-//setup a request function. It is an async function as seen by the async keyword
-const request = async()=>{
-    try{
-        // get data from this site that allows us to work with data fetch
-        const url = 'https://jsonplaceholder.typicode.com/users/7';
-        //Invoke the fetch() method using the specified url and the 'GET' method.
-        //This returns a promise. We don't want to execute the rest of the code
-        //until we have the promise back. 
-        //So we use await keyword 
-        const response = await fetch(url,{method:'GET'});
-        //Use the json() method to get the parsed data from the response. 
-        //This also returns a promise so we need to wait for that to return
-        const data = await response.json();
-        let string ='';
-        //Iterate over all the keys in the data using a for....in loop.
-        for (key in data){
-            string +=`${key} => ${JSON.stringify(data[key])}<br/>`;
-        }
-        //put it in the HTML page using the DOM API and set innerHTML to the string
-        document.getElementById('data').innerHTML = string; 
-    } catch(error){
-        document.getElementById('data').innerHTML = error;
+let locationElement = document.getElementById('location');//use DOM APi to grab location
+const options ={ //These are options to be passed to the getCurrentPosition() method.
+    enableHighAccuracy :true, //Enable high accuracy.
+    timeout: 5000, //Amount of time before the error callback is invoked.
+    maximumAge: 0 //Maximum cached position age in milliseconds.
+};
+
+// if getCurrentPosition is successful
+const handleSuccess =(position) =>{
+    const result = position.coords; //save the coordinates of the location
+    let message ='You are at:<br/>' +
+    `Latitude: ${result.latitude}<br/>`+
+    `Longitude: ${result.longitude}</br>`+
+    `+/- ${result.accuracy} meters.`;
+    locationElement.innerHTML = message; 
+}
+// if getCurrentPosition is not successful
+const handleError = (error) =>{
+    console.warn(`ERROR(${error.code}): ${error.message}`);
+}
+// this is the method that is called when the get location button is clicked and this 
+//uses the geolocation API
+const getLocation = ()=>{
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(handleSuccess,handleError,options);
+    } else{
+        locationElement.innerHTML ='Sorry, this browser does not support Geolocation';
     }
 }
-//invoke the fecth method
-request();
-
 
 
 
