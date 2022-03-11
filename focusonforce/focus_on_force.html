@@ -1,16 +1,29 @@
+<!-- This example shows how to use window.onpopstate, pushstate(), replacestate(), back(), forward(), and go(). (Part 1 of 5) -->
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Focus on Force training</title>
-    </head>
-    <body>
-       <h1>Where am I?</h1>
-       <button onclick="getLocation()">Find Out</button>
-       <p id="location"></p>
-       <script src="main.js"></script>
-    </body>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Focus on Force Training</title>
+</head>
+<body>
+    <h1> History API Simulation</h1>
+    <p> Click Page 1 to push it to the history stack.  The Browser Back Button will be enabled.  You will see '?page=1' on the url text box.
+    <button id='page1'onclick='push({page: 1}, "Page 1", "?page=1")'>Page 1</button></p>
+    <p> Click Page 2 to push it to the history stack.  The Browser Back Button will be enabled. You will see '?page=2' on the url text box.
+    <button id='page2'onclick='push({page: 2}, "Page 2", "?page=2")'>Page 2</button></p>
+    <p> Click this button to replace the top of the history stack with Page 3. You will see '?page=3' on the url text box.  Click the browser'sBACK Button and then the FORWARD button and you will see this page as the new location.
+    <button id='replace'onclick="replace()">Page3</button></p>
+    <p> Click this button or the browser's BACK button to go back a page. 
+    <button id='backward'onclick="backward()"style="enabled:false;">BACKWARD</button></p>
+    <p> Click this button or the browser's FORWARD button to go forward a page. 
+    <button id='forward'onclick="forward()">FORWARD</button>
+    <div id="message"></div>
+
+    <script src="main.js"></script>
+</body>
 </html>
+
+
 
  
