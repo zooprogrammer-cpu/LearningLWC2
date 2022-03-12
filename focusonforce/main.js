@@ -1,11 +1,18 @@
-const canvas = document.getElementById('myCanvas'); //get the canvas element
-let ctx = canvas.getContext('2d');   //get the canvas drawing context
-ctx.strokeStyle ='green';           // set the color
-ctx.lineWidth =10;                //set the line width
-ctx.strokeRect(10,10,150,100);
-ctx.strokeStyle ='blue';          //change the color
-ctx.lineWidth =5;                 //change the line width
-ctx.strokeRect(50,100,50,150);    //render a blue rectangle at a new position
-ctx.strokeStyle='red';    //change the color
-ctx.lineWidth =15;            //change the line width
-ctx.strokeRect(120,50,150,200);
+const urlstring = 'https://example.com:3000/path/page?name=Adam&age=31#profile/';
+const urlobject = new URL(urlstring); //Create a URL object from the URL string
+const wholeURL = new URLSearchParams(urlstring); //Create a URLSearchParams object from the whole URL string
+const searchURL = new URLSearchParams(urlobject.search); //create a URLSeachParams object from the query string. 
+const searchStrings =['somewebsite', 'name', 'age']; //create an array of strings to search for. 
+
+console.log(`The URL String is:` , urlstring)
+console.log(`The URL Object is:`, urlobject)
+console.log(`The wholeURL is:`, wholeURL)
+console.log(`The searchURL is:`, searchURL)
+console.log(`The searchString is:`,searchStrings)
+
+for (let item in searchStrings){
+    urldiv.innerHTML += `<br/>Get ${searchStrings[item]} in ${urlstring} returns <strong>` + wholeURL.get(searchStrings[item]) 
+    +`</strong></br>`;
+    urldiv.innerHTML += `<br/>Get ${searchStrings[item]} in ${urlobject.search} returns <strong>` + searchURL.get(searchStrings[item])
+    + `</strong></br>`;
+}
