@@ -1,18 +1,27 @@
-const urlstring = 'https://example.com:3000/path/page?name=Adam&age=31#profile/';
-const urlobject = new URL(urlstring); //Create a URL object from the URL string
-const wholeURL = new URLSearchParams(urlstring); //Create a URLSearchParams object from the whole URL string
-const searchURL = new URLSearchParams(urlobject.search); //create a URLSeachParams object from the query string. 
-const searchStrings =['somewebsite', 'name', 'age']; //create an array of strings to search for. 
-
-console.log(`The URL String is:` , urlstring)
-console.log(`The URL Object is:`, urlobject)
-console.log(`The wholeURL is:`, wholeURL)
-console.log(`The searchURL is:`, searchURL)
-console.log(`The searchString is:`,searchStrings)
-
-for (let item in searchStrings){
-    urldiv.innerHTML += `<br/>Get ${searchStrings[item]} in ${urlstring} returns <strong>` + wholeURL.get(searchStrings[item]) 
-    +`</strong></br>`;
-    urldiv.innerHTML += `<br/>Get ${searchStrings[item]} in ${urlobject.search} returns <strong>` + searchURL.get(searchStrings[item])
-    + `</strong></br>`;
+//When the page loads, this JavaScript code uses getItem() to get the name from the local storage and display it
+if (typeof(Storage) !== "undefined") {
+    const firstName = localStorage.getItem('firstName');
+    const lastName = localStorage.getItem('lastName');
+    if (firstName || lastName) document.getElementById("welcome").innerHTML = `Welcome back, ${firstName ? firstName : ''}${lastName ? ' ' + lastName : ''}!`;
 }
+    
+// This function uses setItem() to store both First Name and Last Name in local storage.
+const save = (event) => {const firstName = document.getElementById('firstName').value;
+const lastName = document.getElementById('lastName').value;
+if (firstName && lastName) {
+    // Call setItem() to store in local storage.        
+    localStorage.setItem('firstName', firstName);
+    localStorage.setItem('lastName', lastName);        
+    document.getElementById("thankyou").innerHTML= `Thank you, ${firstName}${lastName}!`;    
+}
+}
+// This function uses removeItem() to remove the First Name from localStorage.
+const clearFirstName = (event) => {    
+    localStorage.removeItem('firstName');     
+    document.getElementById("firstName").value = '';
+    
+}// This function uses clear() to clear the local storage.
+const clearAll = () => {    
+    localStorage.clear();
+}
+
