@@ -1,5 +1,7 @@
-setTimeout(function(){
-    console.log(`Timer is finished`);
-},500);
-
-console.log(`Code has finished execution`) //Displays first even though setTimeout is set to 0
+const xhr = new XMLHttpRequest();
+xhr.open('GET','https://jsonplaceholder.typicode.com/todos/1',true);
+xhr.onload= function(){ //callback function
+    let todo =JSON.parse(xhr.responseText);
+    console.log(todo)
+};
+xhr.send(null)
