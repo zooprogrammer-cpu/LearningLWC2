@@ -13,14 +13,16 @@ function makeTaskPromise(completed){
     })
 }
 //promise gets stored in task
-var task = makeTaskPromise(true); 
+//change promise to false for catch method example
+var task = makeTaskPromise(false); 
 //once the promise is received, we need then method
 //to see what the result is
-//task.then(success=>console.log(success),failure=>console.log(failure))
+task.then(success=>console.log(success))
+.catch(error=>console.error("error",error))
 
 //standard notation version of the arrow function above- 
-task.then(function(success){
-    console.log(success)
-},function(error){
-    console.log(error)
-})
+// task.then(function(success){
+//     console.log(success)
+// },function(error){
+//     console.log(error)
+// })
