@@ -17,7 +17,7 @@ function makeTaskPromise(completed){
 var task = makeTaskPromise(false); 
 //once the promise is received, we need then method
 //to see what the result is
-task.then(success=>console.log(success))
+task.then(success=>console.log(success),failure=>console.error("error from then method",failure))
 .catch(error=>console.error("error",error))
 
 //standard notation version of the arrow function above- 
