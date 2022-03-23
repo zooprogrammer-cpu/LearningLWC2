@@ -1,9 +1,10 @@
 //async and await
 async function abc(){
     let promise = new Promise((resolve,reject)=>{
-        setTimeout(()=> resolve("Hello!"),3000)
+        setTimeout(()=> resolve("Hello!"),5000)
     })
+    console.log("start")
     let greeting = await promise
-    return greeting
+    console.log("end")
 }
-abc().then(result=>console.log(result))
+abc()
