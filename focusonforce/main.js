@@ -1,17 +1,16 @@
-//job queue
-console.log('start');
-setTimeout(function(){
-    console.log(`timeout`)
-},0);
+// function foo(){
+//     console.log('I');
+//     console.log('cannot');
+//     console.log('pause');
+// }
+// foo();
 
-var promise = new Promise(function(resolve,reject){
-    resolve();
-});
+function* generate(){
+    console.log('Invoked 1st time');
+    yield 9; 
+    console.log('invoked 2nd time');
+    yield 8;
+}
 
-promise.then(function(resolve){
-    console.log('promise 1')
-})
-.then(function(resolve){
-    console.log('promise 2')
-});
-console.log('end');
+let gen = generate()
+
