@@ -1,16 +1,16 @@
-// function foo(){
-//     console.log('I');
-//     console.log('cannot');
-//     console.log('pause');
-// }
-// foo();
-
-function* generate(){
-    console.log('Invoked 1st time');
-    yield 9; 
-    console.log('invoked 2nd time');
-    yield 8;
+try{
+    console.log(`Hello from try block`)
+    let value="{ash}"
+    JSON.parse(value)
+    console.log(`Hurray`)
 }
 
-let gen = generate()
+catch(err){
+    console.log(`Error from catch block`)
+}
+
+finally{
+    console.log(`Hello I am from finally`)
+
+}
 
