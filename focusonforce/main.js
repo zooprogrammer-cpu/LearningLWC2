@@ -1,15 +1,24 @@
-
-//create a promise and store it in a variable, p
-let p = new Promise((resolve,reject)=>{
+var accountCall = new Promise((resolve,reject)=>{
     setTimeout(()=>{
-        resolve(10);
-    },3000);
+        console.log('account fetched successfully');
+        resolve(["Saving","Current"]);
+    },1000)
 });
 
-p.then((result)=>{
-    console.log(result);
-    return result * 2;
-}).then((result1)=>{ //the previous promise is capture by then
-    console.log(result1);
-    throw new Error("Something is Wrong")
-}).catch (error=>console.error(error))//catch to hold the error for then and promise 
+var countryCall = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        console.log('country list fetched succesfully');
+        resolve(["INDIA","AUSTRALIA"]);
+    },2000)
+});
+
+var currencyList = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        console.log('currencyList list fetched succesfully');
+        resolve(["INR","USD","AUD"]);
+    },3000)
+});
+Promise.all([accountCall,countryCall,currencyList]).then(results=>{
+    console.log("FORM LOADED SUCCESSFULLY",results)
+})
+
