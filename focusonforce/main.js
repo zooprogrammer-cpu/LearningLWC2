@@ -1,27 +1,13 @@
-var accountCall = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        console.log('account fetched successfully');
-        resolve(["Saving","Current"]);
-    },1000)
-});
+var job1 = new Promise((resolve,reject)=> setTimeout(resolve,2000,'Job1 ready'))
+var job2 = new Promise((resolve,reject)=> setTimeout(reject,1000,'Job2 ready'))
+var job3 = new Promise((resolve,reject)=> setTimeout(resolve,3000,'Job3 ready'))
 
-var countryCall = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        //console.log('country list fetched succesfully');
-        reject("error");
-    },2000) 
-});
 
-var currencyList = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        console.log('currencyList list fetched succesfully');
-        resolve(["INR","USD","AUD"]);
-    },3000)
-});
-Promise.all([accountCall,countryCall,currencyList]).then(results=>{
-    console.log("FORM LOADED SUCCESSFULLY",results)
-}).catch(err=>{
-    console.error(err)
-    console.log("FORM LOADEDED UNSUCCESSFULLY")
+// Promise.all([job1,job2,job3]).then(results=>{
+//     console.log("SUCCESSFUL",results)
+// })
+
+Promise.race([job1,job2,job3]).then(results=>console.log("result is here",results))
+.catch(err=>{
+    console.log("err",err)
 })
-
