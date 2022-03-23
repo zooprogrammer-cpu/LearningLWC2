@@ -7,9 +7,9 @@ var accountCall = new Promise((resolve,reject)=>{
 
 var countryCall = new Promise((resolve,reject)=>{
     setTimeout(()=>{
-        console.log('country list fetched succesfully');
-        resolve(["INDIA","AUSTRALIA"]);
-    },2000)
+        //console.log('country list fetched succesfully');
+        reject("error");
+    },2000) 
 });
 
 var currencyList = new Promise((resolve,reject)=>{
@@ -20,5 +20,8 @@ var currencyList = new Promise((resolve,reject)=>{
 });
 Promise.all([accountCall,countryCall,currencyList]).then(results=>{
     console.log("FORM LOADED SUCCESSFULLY",results)
+}).catch(err=>{
+    console.error(err)
+    console.log("FORM LOADEDED UNSUCCESSFULLY")
 })
 
