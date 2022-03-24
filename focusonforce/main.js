@@ -1,12 +1,12 @@
-function callApi(){
-    console.time(`API TIMER`)
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-        .then(response => response.json())
-        .then(json =>{
-            console.timeEnd('API TIMER')//prints time taken by the API
-            console.table(json) //prints the response of the API
-        })
-}
-callApi()
+var x =[
+    {name:"Ash", language:"javaScript", age:37},
+    {name:"Dug", language:"bark", age:4}
+]
+x.forEach(item=>{
+    console.group(item.name)
+    console.log(`${item.name} is ${item.age} old`) 
+    console.log(`${item.name} is a ${item.language} developer`) 
+    console.groupEnd(item.name)
+})
 
 
