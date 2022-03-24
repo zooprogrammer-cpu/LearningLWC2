@@ -1,12 +1,15 @@
+let name ="ash"
 try{
-    hello
+    if (name!=='ash'){
+        throw "Something is wrong with the name"
+    } else {
+        console.log ("All good")
+    }
 
 }
 
 catch(err){
-    console.log(err.name) // reference error
-    console.log(err.message) // ex, hello is not defined
-    console.log(err.stack) // name:message
+    console.log(err)
 }
 
 
