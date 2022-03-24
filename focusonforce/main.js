@@ -1,16 +1,17 @@
 try{
-    console.log(`Hello from try block`)
-    let value="{ash}"
-    JSON.parse(value)
-    console.log(`Hurray`)
+    setTimeout(function(){
+        try{
+            abc //script will di here
+        } catch(err){
+            console.error("setTimeout exception won't work")
+        } 
+    },1000)
 }
-
 catch(err){
     console.log(`Error from catch block`)
 }
+console.log(`Outside try and catch`)
 
-finally{
-    console.log(`Hello I am from finally`)
 
-}
+
 
