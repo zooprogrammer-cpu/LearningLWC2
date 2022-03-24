@@ -1,7 +1,7 @@
-let name ="ash"
+let name ="bob"
 try{
     if (name!=='ash'){
-        throw "Something is wrong with the name"
+        throw new Error("Something is wrong with the name")
     } else {
         console.log ("All good")
     }
@@ -10,6 +10,8 @@ try{
 
 catch(err){
     console.log(err)
+    console.log(err.name)
+    console.log(err.message)
 }
 
 
