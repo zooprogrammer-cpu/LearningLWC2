@@ -1,19 +1,8 @@
-let name ="bob"
-try{
-    if (name!=='ash'){
-        throw new Error("Something is wrong with the name")
-    } else {
-        console.log ("All good")
-    }
+var x =[
+    {name: "Bob",language:"JavaScript"},
+    {name:"Karkara",language:"Python"}]
 
-}
-
-catch(err){
-    console.log(err)
-    console.log(err.name)
-    console.log(err.message)
-}
-
+console.log ("Hello, %s. You've called me %d times and object is %o","Tom",10,x)
 
 
 
