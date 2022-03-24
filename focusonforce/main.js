@@ -1,16 +1,13 @@
 try{
-    setTimeout(function(){
-        try{
-            abc //script will di here
-        } catch(err){
-            console.error("setTimeout exception won't work")
-        } 
-    },1000)
+    hello
+
 }
+
 catch(err){
-    console.log(`Error from catch block`)
+    console.log(err.name) // reference error
+    console.log(err.message) // ex, hello is not defined
+    console.log(err.stack) // name:message
 }
-console.log(`Outside try and catch`)
 
 
 
