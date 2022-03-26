@@ -3,7 +3,7 @@ function doubleNum(num){
 }
 //lets check if it an even number
 let num =3
-console.assert(doubleNum(num) %2 ===0,{errorMsg:'Not an even number', number:num})
+console.assert(doubleNum(num) %2 ===0,'%s is not an even number',num)
 
 
 
