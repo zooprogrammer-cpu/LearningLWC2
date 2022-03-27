@@ -1,38 +1,37 @@
-//array methods
+//map method
+//map - heavily used in LWC. It takes a callback. 
+//callback is a function that passes an arguement to antoher function
+//helpful when creating a checkbox or picklist
 
-//splice to remove. Updates exixsting array
+var people = [
+    {name:"ash", age: 37},
+    {name:"brita", age: 33},
+    {name:"dug",age:4}
+]
 
-x = ['a','b','c','d','e']
-x.splice(2,2)
-console.log(x) // a,b,e
+console.log(people)
+//0: {name: 'ash', age: 37}
+//1: {name: 'brita', age: 33}
+//2: {name: 'dug', age: 4}
 
-//use splice to add. Updates exixsting array
-y=['j','k','l','m'] 
-y.splice(1,0,'hurray')
-console.log(y) // (5) ['j', 'hurray', 'k', 'l', 'm']
+newPeople = people.map(function(currItem,index,actualArr){
+    console.log("currItem",currItem);
+    console.log("index",index);
+    console.log("actualArr",actualArr);
+    //currItem {name:'ash', age:37}
+    //index 0 
+    //actualArr 
+    //0: {name: 'ash', age: 37}
+    //1: {name: 'brita', age: 33}
+    //2: {name: 'dug', age: 4}
 
-//indexOf()
-z = ['tom','bob','lucas','bob']
-console.log(z.indexOf('bob')) //1
+    return {"key":currItem.name, "value":currItem.age}
 
-//lastIndexOf()
-console.log(z.lastIndexOf('bob')) //3
+})
 
-//join array into a string
-console.log(z.join('')) //tomboblucasbob
-
-//join array with a specific seperator
-console.log(z.join('-')) //tom-bob-lucas-bob
-
-//slice returns a new array
-var arr3 = ['4','5','8','2','1']
-var newArr3 = arr3.slice(1,3)
-console.log(newArr3) // ['5', '8']
-
-//concat
-conArr1 = ["This is a"]
-conArr2 =["great day"]
-conArr3=conArr1.concat(conArr2)
-console.log(conArr3)  //(2) ['This is a', 'great day']
+console.log(newPeople)
+//0: {key: 'ash', value: 37}
+//1: {key: 'brita', value: 33}
+//2: {key: 'dug', value: 4}
 
 
