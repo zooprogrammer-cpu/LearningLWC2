@@ -1,16 +1,9 @@
-//while loop
-
-var a = 0
-while (a<10){
-    console.log("num",a)
-    a++;
+//scope pollution
+let num = 50; 
+function logNum(){
+    num = 100
+    console.log(num)
 }
 
-//do while loop
-
-var numb
-do{
-    let input = prompt('Please enter the number greater 10')
-    numb = parseInt(input)
-}
-while(numb<10)
+logNum() //prints 100
+console.log(num) //prints 100
