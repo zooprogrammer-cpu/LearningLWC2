@@ -1,13 +1,16 @@
-// some method
+// sort method
 var people = [
     {name:"ash", age: 37},
     {name:"brita", age: 33},
     {name:"dug",age:4}
 ]
 
-oldPeople = people.some(function(currItem,index,actualArr){
-    return currItem.age>30
+people.sort(function(a,b){
+    return a.age - b.age
 })
 
-console.log(oldPeople)
-// returns true
+console.log(people)
+/*0: {name: 'dug', age: 4}
+1: {name: 'brita', age: 33}
+2: {name: 'ash', age: 37}
+*/
