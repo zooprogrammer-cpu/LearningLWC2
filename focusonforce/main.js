@@ -1,13 +1,16 @@
-// for in loop
-let oldCar={
-    make: 'Toyota',
-    model: 'Tercel',
-    year: '1996'
+//while loop
+
+var a = 0
+while (a<10){
+    console.log("num",a)
+    a++;
 }
 
-for(let key in oldCar){
-    console.log(`${key}-->${oldCar[key]}`)
+//do while loop
+
+var numb
+do{
+    let input = prompt('Please enter the number greater 10')
+    numb = parseInt(input)
 }
-//make-->Toyota
-//model-->Tercel
-//year-->1996
+while(numb<10)
