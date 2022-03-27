@@ -1,14 +1,15 @@
-// every method
-//return true or false if all elements satisfy condition
+// filter method
 var people = [
     {name:"ash", age: 37},
     {name:"brita", age: 33},
     {name:"dug",age:4}
 ]
 
-x = people.every(function(currItem, index,actualArr){
-    return currItem.age>8
-
+oldPeople = people.filter(function(currItem,index,actualArr){
+    return currItem.age>30
 })
 
-console.log(x) //false
+console.log(oldPeople)
+
+//{name: 'ash', age: 37}
+//{name: 'brita', age: 33}
