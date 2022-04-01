@@ -53,4 +53,4 @@ export default class NavigateToObjectPage extends NavigationMixin(LightningEleme
             }
         })
     }
-}    
+}

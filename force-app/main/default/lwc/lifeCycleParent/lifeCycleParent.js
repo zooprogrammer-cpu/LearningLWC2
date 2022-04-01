@@ -17,4 +17,3 @@ export default class LifeCycleParent extends LightningElement {
         this.isChildVisible = !this.isChildVisible
     }
 }
-

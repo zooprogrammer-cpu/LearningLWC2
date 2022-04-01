@@ -6,4 +6,3 @@ public static List<Account> getAccounts(){
    FROM Account ORDER BY Name LIMIT 20];
 }
 }
-

@@ -10,4 +10,3 @@ export default class Track extends LightningElement {
         this.address.city = event.target.value
     }
 }
-

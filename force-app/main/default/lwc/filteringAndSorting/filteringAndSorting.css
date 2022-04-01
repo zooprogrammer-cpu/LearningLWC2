@@ -1,4 +1,3 @@
-    
 table{
     border-collapse: collapse;
     width: 100%;
@@ -12,4 +11,4 @@ td,th{
   
 tr:nth-child(even){
     background-color: grey;
-}  
+}
