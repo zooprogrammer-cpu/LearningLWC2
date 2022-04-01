@@ -1,8 +1,10 @@
 import { LightningElement } from 'lwc';
 
 export default class ConditionalRendering extends LightningElement {
-    isVisible = false
+    isVisible = false;
     handleClick(){
-        this.isVisible = true;
+        console.log(`Button clicked`)
+        //this.isVisible = true;
+        this.isVisible =!this.isVisible;
     }
 }
