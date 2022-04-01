@@ -6,7 +6,7 @@ export default class Getters extends LightningElement {
     num2 =10;
 
     get firstUser(){
-        return this.users[0]
+        return this.users[0].toUpperCase()
     }
 
     get multiple(){
