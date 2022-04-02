@@ -8,6 +8,16 @@
             <template if:false={isVisible}>
                 <div>You can't see the data</div>
             </template>
+
+            <lightning-input
+                type="text"
+                label="Type Hello to see the data"
+                onkeyup={changeHandler}
+                value={typedText}>
+            </lightning-input>
+            <template if:true={checkText}>
+                <div>Success, you have typed correctly</div>
+            </template>
             
         </div>
     </lightning-card>
