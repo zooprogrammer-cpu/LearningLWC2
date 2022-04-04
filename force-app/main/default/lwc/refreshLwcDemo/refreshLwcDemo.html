@@ -1,5 +1,13 @@
 <template>
     <lightning-card title="Refresh Apex" icon-name="custom:custom63">
-        {isContactAvailable}
+        <div>
+            <lightning-datatable
+            key-field="id"
+            data={contact.data}
+            columns={columns}
+            onsave={handleSave}
+            draft-values={draftValues}>
+            </lightning-datatable>
+        </div>
     </lightning-card>
 </template>
