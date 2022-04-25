@@ -16,5 +16,15 @@ public with sharing class AccountController {
         return [SELECT id, Name, Type, Industry from Account
         WHERE Name LIKE:key LIMIT 5];
     }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Account> getAccountRecordWithRelatedContactList(Id recordId) {
+
+        List <Account> accountList = new List<Account>();
+        accountList =  [Select Id,(Select Id, FirstName, LastName, Title, Phone, Email FROM Contacts) from Account WHERE Id = :recordId];
+
+        return accountList;
+    }
+
     
 }
