@@ -20,6 +20,9 @@ export default class ThirdPartyFiles extends LightningElement {
                 console.error(error)
             })
 
+
+
+
             this.isLibLoaded= true
         }
         
