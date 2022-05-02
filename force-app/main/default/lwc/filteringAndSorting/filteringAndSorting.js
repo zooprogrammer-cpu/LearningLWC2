@@ -2,8 +2,8 @@ import { LightningElement, wire } from 'lwc';
 import getContactList from '@salesforce/apex/ContactController.getContactList'
 export default class FilteringAndSortingDemo extends LightningElement {
     headings=["Id", "Name", "Title", "Email"]
-    fullTableData=[]
-    filteredData=[]
+    @track fullTableData=[]
+    @track filteredData=[]
     timer
     filterBy="Name"
     @wire(getContactList)
