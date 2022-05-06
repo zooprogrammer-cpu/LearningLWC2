@@ -15,6 +15,7 @@ export default class PaginationDemo extends LightningElement {
     }
 
     updateContactHandler(event){
+        this.visibleContacts=[...event.detail.records]
         console.log(event.detail.records)
     }
 }

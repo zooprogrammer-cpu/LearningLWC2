@@ -16,14 +16,15 @@ export default class Pagination extends LightningElement {
             this.totalPage = Math.ceil(data.length/this.recordSize)
             this.updateRecords()
         }    
-    }          
+    }
+    previousHandler(){
+
+    }
+
     nextHandler(){
 
     }
 
-    previousHandler(){
-
-    }
     updateRecords(){
         this.dispatchEvent(new CustomEvent('update',{
             detail:{
