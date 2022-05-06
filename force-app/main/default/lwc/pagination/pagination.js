@@ -1,37 +1,49 @@
-import { LightningElement,api } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 export default class Pagination extends LightningElement {
+    currentPage =1
     totalRecords
-    @api recordSize = 5 
+    @api recordSize = 5
+    totalPage = 0
     get records(){
         return this.visibleRecords
     }
-   // make the property public and catch the records property from paginationDemo parent
-    //not just catch but we want to modify the data from the parent
-    @api
+    @api 
     set records(data){
-        if(data){
+        if(data){ 
             this.totalRecords = data
-            this.visibleRecords = data.slice(0,this.recordSize)
+            this.recordSize = Number(this.recordSize)
             this.totalPage = Math.ceil(data.length/this.recordSize)
             this.updateRecords()
-        }    
-    }
-    previousHandler(){
-
+        }
     }
 
+    get disablePrevious(){ 
+        return this.currentPage<=1
+    }
+    get disableNext(){ 
+        return this.currentPage>=this.totalPage
+    }
+    previousHandler(){ 
+        if(this.currentPage>1){
+            this.currentPage = this.currentPage-1
+            this.updateRecords()
+        }
+    }
     nextHandler(){
-
+        if(this.currentPage < this.totalPage){
+            this.currentPage = this.currentPage+1
+            this.updateRecords()
+        }
     }
-
-    updateRecords(){
-        this.dispatchEvent(new CustomEvent('update',{
-            detail:{
+    updateRecords(){ 
+        const start = (this.currentPage-1)*this.recordSize
+        const end = this.recordSize*this.currentPage
+        this.visibleRecords = this.totalRecords.slice(start, end)
+        this.dispatchEvent(new CustomEvent('update',{ 
+            detail:{ 
                 records:this.visibleRecords
             }
-        }
-            
-        ))
+        }))
     }
 }
