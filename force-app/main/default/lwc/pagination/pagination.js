@@ -11,13 +11,11 @@ export default class Pagination extends LightningElement {
     @api
     set records(data){
         if(data){
-            
-        }
-        this.totalRecords = data
-        this.visibleRecords = data.slice(0,this.recordSize)
-        this.totalPage = Math.ceil(data.length/this.recordSize)
-        this.updateRecords()
-
+            this.totalRecords = data
+            this.visibleRecords = data.slice(0,this.recordSize)
+            this.totalPage = Math.ceil(data.length/this.recordSize)
+            this.updateRecords()
+        }    
     }          
     nextHandler(){
 
