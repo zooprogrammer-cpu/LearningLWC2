@@ -3,7 +3,8 @@ import getAccounts from '@salesforce/apex/tableController.getAccounts';
 const COLUMNS = [
     {label:'Account Name', fieldName:'Name'},
     {label:'Annual Revenue', fieldName:'AnnualRevenue', type:'currency', cellAttributes:{
-        class:{fieldName:'amountColor'}
+        class:{fieldName:'amountColor'},
+        iconName : {fieldName: 'iconName'}, iconPosition:'right'
     }},
     {label:'Industry', fieldName:'Industry'},
     {label:'Phone', fieldName:'Phone'}
@@ -24,7 +25,8 @@ export default class DataTableDemo extends LightningElement {
         if(data){
             this.tableData = data.map(item=>{
                 let amountColor = item.AnnualRevenue < 500000 ? "slds-text-color_error": "slds-text-color_success"
-                return {...item,"amountColor":amountColor}
+                let iconName = item.AnnualRevenue < 500000 ? "utility:down": "utility:up"
+                return {...item,"amountColor":amountColor,"iconName":iconName}
             });
             console.log(this.tableData);
  
