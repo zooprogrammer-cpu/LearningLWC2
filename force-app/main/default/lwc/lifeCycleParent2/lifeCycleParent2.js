@@ -1,6 +1,7 @@
 import { LightningElement } from 'lwc';
 
 export default class LifeCycleParent2 extends LightningElement {
+    isChildVisible = false; 
     //construcot rmethod gets called first
     constructor(){
         super()
@@ -16,9 +17,10 @@ export default class LifeCycleParent2 extends LightningElement {
     renderedCallback(){
         console.log("parent renderedCallback called")
     }
-    name
-    changeHandler(event){
-        this.name = event.target.value
+
+    handleClick(){
+        this.isChildVisible = !this.isChildVisible; 
     }
+    
 
 }
