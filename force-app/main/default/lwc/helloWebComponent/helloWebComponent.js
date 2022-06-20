@@ -14,5 +14,3 @@ export default class HelloWebComponent extends LightningElement {
       this.greeting = event.target.value;
     }
 }
-
-
