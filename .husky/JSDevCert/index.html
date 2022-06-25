@@ -6,38 +6,13 @@
    
     </body>
     <script>
-        // explicit coercion 
-        var x= String (23)
-        console.log(typeof(x)) // prints string
-
-        console.log(Number (undefined)) //prints NaN
-        console.log(Number (null)) //prints 0
-
-        console.log(Number("hello")) //prints NaN
-
-        console.log(Number(true)) //prints 1
-
-        console.log(Number(false)) // prints 0
-
-        console.log(Number(["33"])) // prints 33
-
-        console.log(Number(["22","44"]))  //prints NaN
-
-        //Falsy Values 
-        console.log(!2) //false
-        console.log(Boolean(false)) //false
-        console.log(Boolean(NaN)) //false
-        console.log(Boolean([])) //true
-
-        //Implicit conversion 
-        console.log("Hello" + "world") //prints "Helloworld"
-        console.log(2343+ "Hello" +34) //prints "2343Hello34"
-        console.log(110 + null + 20 + "world") //prints 130world
-        console.log(110 + 67 + "hey") //prints 177hey
-        console.log(100+200+ undefined + "hey") // prints NaNhey
-        console.log(100 + null + 20 +"world") //prints 120world
-
-
-
+    //equality comparison
+    console.log(100 == "100")  // prints true
+    console.log(100 === "100") //prints false
+    console.log(NaN === NaN)  //prints false
+    console.log(Object.is(-0, 0))  //prints false
+    console.log(Object.is(NaN , NaN))  //prints true
     </script>
+
+    
 </html>
