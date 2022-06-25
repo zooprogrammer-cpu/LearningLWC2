@@ -5,8 +5,14 @@
         <h1>Debugging and Error Handling Session 4</h1>
     </body>
     <script>
-        let value ='{"name" : "ash"}'
-        let obj = JSON.parse(value)
-        console.log("end", obj)
+        try{
+            hello
+        }
+        catch(err){
+            console.log(`error name`,err.name) 
+            console.log(`error message`,err.message)
+            console.log(`error stack`,err.stack)
+        }
+        
     </script>
 </html>
