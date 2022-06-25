@@ -1,20 +1,76 @@
 <!DOCTYPE html>
 <html>
-    <title>JavaScript Session 4</title>
+    <title>JavaScript Session 1</title>
     <body>
-        <h1>Debugging and Error Handling Session 4</h1>
-        <button id="btn">Click Me</button>
+        <h1>Varaibles, Types and Collections</h1>
+   
     </body>
     <script>
-        let elem = document.querySelector(`#btn`)
-        elem.addEventListener("click", this.btnHandler)
-    
-        function btnHandler(event){
-            console.log("start")
-            console.log(event)
-            console.log("end")
+
+        //1. Using Object literal method
+        var obj = {
+            name: "ash",
+            age: 23,
+            "isAvailable" : true,
+            getName : hello()
         }
-       
+
+        function hello(){
+            return "Hey Ash"
+        }
+        console.log(obj)
+
+        // add by dot notation 
+        var obj1={}
+        obj1.name = "salesforce"
+        obj1.head = "san fran"
+        console.log(obj1)
+
+        //add by array notation
+        obj1["age"] = 45
+        obj1["city"] = 'Madison'
+        console.log(obj1)
+
+        //2. Using Object constructor method
+        var obj3 = new Object()
+        obj3.name= "sfdc"
+        console.log(obj3)
+
+        // 3. Using object.create method
+        var obj4 = {name:"Ash", age: 57}
+        var newObj = Object.create(obj4)
+        console.log(newObj)
+        console.log(newObj.name)
+        console.log(newObj.age)
+
+        //dot notation vs array notation
+        // dot notation does not work when there is  
+
+        var obj6 = {
+            "full Name" : "Aayush Basnyat",
+            "Name" : "ash"
+        }
+        console.log(obj6)
+        //this dot notation does not work : console.log(obj6."full Name")
+        //recommended to use array notation 
+        console.log(obj6["full Name"])
+
+        //how to fetch keys of an object
         
+        console.log(Object.keys(obj6))
+
+        //delete property from an object
+        delete obj6.Name
+        console.log(obj6)
+
+        //convert object to string
+        let str = JSON.stringify(obj4)
+        console.log(str)
+
+        //convert stringify to object again
+        let convertObj = JSON.parse(str)
+        console.log(convertObj)
+    
+
     </script>
 </html>
