@@ -3,16 +3,18 @@
     <title>JavaScript Session 4</title>
     <body>
         <h1>Debugging and Error Handling Session 4</h1>
+        <button id="btn">Click Me</button>
     </body>
     <script>
-        try{
-            hello
+        let elem = document.querySelector(`#btn`)
+        elem.addEventListener("click", this.btnHandler)
+    
+        function btnHandler(event){
+            console.log("start")
+            console.log(event)
+            console.log("end")
         }
-        catch(err){
-            console.log(`error name`,err.name) 
-            console.log(`error message`,err.message)
-            console.log(`error stack`,err.stack)
-        }
+       
         
     </script>
 </html>
