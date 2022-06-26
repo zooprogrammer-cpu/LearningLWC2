@@ -2,16 +2,76 @@
 <html>
     <title>JavaScript Session 2</title>
     <body>
-        <h1>Objects, FUnction and Classes</h1>
+        <h1>Objects, Function and Classes</h1>
    
     </body>
     <script>
-       // Array constructor
-       var stringArray = new Array(); 
-       stringArray[0] = 1
-       stringArray[1] =67
-       console.log(stringArray.length)
-       console.log(stringArray)
+       // Array Methods
+       //push
+       let newArr = ["ash", "brita", "dug"]
+       newArr.push("Hello")
+       console.log(newArr) //prints ['ash', 'brita', 'dug', 'Hello']
+
+       //pop
+       newArr.pop()
+       console.log(newArr) //prints ['ash', 'brita', 'dug']
+
+       //shift
+
+       newArr.shift(newArr)
+       console.log(newArr) // prints ['brita', 'dug']
+
+       //unshift
+
+       newArr.unshift("nate")
+       console.log(newArr) //prints ['nate', 'brita', 'dug']
+
+       //reverse
+
+       newArr.reverse()
+       console.log(newArr) //prints ['dug', 'brita', 'nate']
+
+       // splice . Mutates the same array. Splices after the first parameter. 
+       //Splices the qty of array 
+       let toBeSpliced = ['ash', 'brita', 'dug', 'Hello','Test']
+       toBeSpliced.splice(2,1)
+       console.log(toBeSpliced)  // prints ['ash', 'brita', 'Hello','Test']
+
+       // splice with parameter "hurray"
+
+       z = ['ash', 'brita', 'dug', 'Hello']
+       z.splice(1,0,"hurray")
+       console.log(z) // prints ['ash', 'hurray', 'brita', 'dug', 'Hello']
+
+       //indexOf
+
+       let indexArr = ["a", "b", "c","d"]
+       console.log(indexArr.indexOf("c")) //prints 2
+       console.log(indexArr.indexOf("g"))  //prints -1 since g is not present
+
+       // lastindexof
+       let secondArr = ["a", "b", "a", "c", "d"]
+       console.log(secondArr.lastIndexOf("a")) //prints 2
+
+       // join
+       console.log(secondArr.join("")) // prints abcd
+       console.log(secondArr.join('-')) // prints a-b-a-c-d
+
+       //slice - always returns a new array and splice mutates the same array
+       //slices all up to the first parameter. But does not slice that parameter
+       // Slices the second parameter
+       let tobeSliced = ["a","b","c","d"]
+       let slicedArr =[]
+       slicedArr = tobeSliced.slice(1,3)
+       console.log(slicedArr) // prints ['b', 'c']
+
+       //concat
+       let arr1 = [1,2,3,4,5]
+       let arr2 = ["a","b","c","d"]
+       let arr3 = arr1.concat(arr2)
+       console.log(arr3)
+
+
     </script>
 
     
