@@ -7,30 +7,33 @@
     </body>
     <script>
   //hoisitng
-        var hoist
-        console.log(hoist)
-        hoist = 'hello' // prints undefined
-
-
-        function hoistFun(){
-            console.log(message)
-            var message = 'Hello hoisting' 
-
-        }
-        hoistFun() //prints undefined
-
-
-        //function expression cannot be hoisted. It results in uncaught TypeError 
-        s()
-        var s = function(){
-            console.log("expression not hoisted")
-        }
-
-        //function definition is hoisted. No error
-        t()
-        function t(){
-            console.log("definition hoisted")
-        }
+              // first quiz
+              var variable = 10; 
+              function test(){
+                  console.log(variable)
+                  var variable = 20
+                  console.log(variable)
+      
+              }
+      
+              test()
+      
+              //prints 
+              //undefined
+              //20
+      
+              //second quiz
+              var variable2 = 10; 
+              function test2(){
+                  console.log(variable2)
+                  variable2 = 20
+                  console.log(variable2)
+              }
+      
+              test2()
+              //prints 
+              //10
+              //20
 
         
 
