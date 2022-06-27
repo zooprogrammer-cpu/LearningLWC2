@@ -6,70 +6,97 @@
    
     </body>
     <script>
-       // Array Methods
-       //push
-       let newArr = ["ash", "brita", "dug"]
-       newArr.push("Hello")
-       console.log(newArr) //prints ['ash', 'brita', 'dug', 'Hello']
+       // Complex Array Methods
+       //map
+       var x =[
+           {name:"a", age:10}, 
+           {name:"b", age:40}, 
+           {name:"c", age:20}, 
+           {name:"d", age:9}, 
+       ]
+       let y = x.map((currItem,index,actualArr)=>{
+        console.log("currItem", currItem)
+        console.log("index", index)
+        console.log("actualArr", actualArr)
+        return {"key": currItem.name, "value":currItem.age , "random":2+3}
+       })
+       
+       console.log(y)
+      /*
+      {key: 'a', value: 10}
+      {key: 'b', value: 40}
+      {key: 'c', value: 20} 
+      {key: 'd', value: 9} 
+      */
 
-       //pop
-       newArr.pop()
-       console.log(newArr) //prints ['ash', 'brita', 'dug']
+    //every 
+      var z =[
+            {name:"a", age:10}, 
+            {name:"b", age:40}, 
+            {name:"c", age:20}, 
+            {name:"d", age:9}, 
+        ]
+        let resultEvery = x.every((currItem,index,actualArr)=>{
+            return currItem.age>8
+        })
+        console.log(resultEvery) //prints true
 
-       //shift
+    //filter    
+        let filterItems = z.filter((currItem,index,actualArr)=>{
+            return currItem.age >10
+        })
+     
+        console.log(filterItems)
+        //prints
+        //{name: 'b', age: 40}
+        //{name: 'c', age: 20}
 
-       newArr.shift(newArr)
-       console.log(newArr) // prints ['brita', 'dug']
+    //some
+    let someItems = z.some((currItem,index,actualArr)=>{
+        return currItem.age > 10
+    })
+    console.log(someItems)
+    
+    //sort for numbers
 
-       //unshift
+    let sortNumbers = z.sort((a,b)=>{
+        return a.age - b.age 
+    })
 
-       newArr.unshift("nate")
-       console.log(newArr) //prints ['nate', 'brita', 'dug']
+    console.table(sortNumbers)
+    //prints in asceding order of age
 
-       //reverse
 
-       newArr.reverse()
-       console.log(newArr) //prints ['dug', 'brita', 'nate']
+    // sort for strings
+    let sortStrings = z.sort((a,b)=>{
+        return (a.name > b.name) ? 1 : (a.name < b.name) ? -1 :0
+    })
 
-       // splice . Mutates the same array. Splices after the first parameter. 
-       //Splices the qty of array 
-       let toBeSpliced = ['ash', 'brita', 'dug', 'Hello','Test']
-       toBeSpliced.splice(2,1)
-       console.log(toBeSpliced)  // prints ['ash', 'brita', 'Hello','Test']
+    console.log(sortStrings)
 
-       // splice with parameter "hurray"
+    //prints
+    //{name: 'a', age: 10}
+    //{name: 'b', age: 40}
+    //{name: 'c', age: 20}
+    //{name: 'd', age: 9}
 
-       z = ['ash', 'brita', 'dug', 'Hello']
-       z.splice(1,0,"hurray")
-       console.log(z) // prints ['ash', 'hurray', 'brita', 'dug', 'Hello']
+    //reduce
+    var numbers = [10,20,30,40]
+    let reducedNumbers = numbers.reduce((total,currItem,index,actualArr)=>{
+        console.log("total", total)
+        console.log("Current value is", currItem)
+        return total + currItem
+    },0)
+    console.log(`Total:`, reducedNumbers)
 
-       //indexOf
+    //reduce right
 
-       let indexArr = ["a", "b", "c","d"]
-       console.log(indexArr.indexOf("c")) //prints 2
-       console.log(indexArr.indexOf("g"))  //prints -1 since g is not present
-
-       // lastindexof
-       let secondArr = ["a", "b", "a", "c", "d"]
-       console.log(secondArr.lastIndexOf("a")) //prints 2
-
-       // join
-       console.log(secondArr.join("")) // prints abcd
-       console.log(secondArr.join('-')) // prints a-b-a-c-d
-
-       //slice - always returns a new array and splice mutates the same array
-       //slices all up to the first parameter. But does not slice that parameter
-       // Slices the second parameter
-       let tobeSliced = ["a","b","c","d"]
-       let slicedArr =[]
-       slicedArr = tobeSliced.slice(1,3)
-       console.log(slicedArr) // prints ['b', 'c']
-
-       //concat
-       let arr1 = [1,2,3,4,5]
-       let arr2 = ["a","b","c","d"]
-       let arr3 = arr1.concat(arr2)
-       console.log(arr3)
+    let reduceRight = numbers.reduceRight((total,currItem,index,actualArr)=>{
+        console.log("total", total)
+        console.log("Current value is", currItem)
+        return total + currItem
+    })
+    console.log(`Total:`, reduceRight)
 
 
     </script>
