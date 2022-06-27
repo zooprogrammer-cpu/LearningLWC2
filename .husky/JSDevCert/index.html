@@ -6,97 +6,82 @@
    
     </body>
     <script>
-       // Complex Array Methods
-       //map
-       var x =[
-           {name:"a", age:10}, 
-           {name:"b", age:40}, 
-           {name:"c", age:20}, 
-           {name:"d", age:9}, 
-       ]
-       let y = x.map((currItem,index,actualArr)=>{
-        console.log("currItem", currItem)
-        console.log("index", index)
-        console.log("actualArr", actualArr)
-        return {"key": currItem.name, "value":currItem.age , "random":2+3}
-       })
-       
-       console.log(y)
-      /*
-      {key: 'a', value: 10}
-      {key: 'b', value: 40}
-      {key: 'c', value: 20} 
-      {key: 'd', value: 9} 
-      */
-
-    //every 
-      var z =[
-            {name:"a", age:10}, 
-            {name:"b", age:40}, 
-            {name:"c", age:20}, 
-            {name:"d", age:9}, 
+        //Looping in JavaScript
+        //For Loop - used when we already know the number of iteration 
+        const alphabets =[
+            {name : 'A'},
+            {name : 'B'},
+            {name : 'C'},
+            {name : 'D'}
         ]
-        let resultEvery = x.every((currItem,index,actualArr)=>{
-            return currItem.age>8
-        })
-        console.log(resultEvery) //prints true
 
-    //filter    
-        let filterItems = z.filter((currItem,index,actualArr)=>{
-            return currItem.age >10
+        for (i=0; i<alphabets.length ; i++){
+            console.log(`Alphabet is:`,alphabets[i].name)
+        }
+        //Alphabet is: A
+        //Alphabet is: B
+        //Alphabet is: C
+        //Alphabet is: D 
+
+        //For each loop
+
+        alphabets.forEach((currItem, index, actualArr)=>{
+            console.log(`alphabet is`, currItem.name)
         })
-     
-        console.log(filterItems)
+        /*
+            alphabet is A
+            alphabet is B
+            alphabet is C
+            alphabet is D
+        */
+
+
+        // For of Loop
+
+        for(let alphabet of alphabets){
+            console.log(`alphabet is`, alphabet.name)
+            if (alphabet.name === 'B'){
+                break;
+            }
+        }
+
+        /*
+            alphabet is A
+            alphabet is B
+        */
+
+        // For in Loop - works in an object
+        let oldCar ={
+            make: 'Toyota',
+            model: 'Tercel',
+            year: '1996'
+        }
+
+        for(let key in oldCar){
+            console.log(`${key} --> ${oldCar[key]} `)
+        }
+
         //prints
-        //{name: 'b', age: 40}
-        //{name: 'c', age: 20}
+        //make --> Toyota 
+        //model --> Tercel 
+        //year --> 1996
 
-    //some
-    let someItems = z.some((currItem,index,actualArr)=>{
-        return currItem.age > 10
-    })
-    console.log(someItems)
-    
-    //sort for numbers
+        //while loop used only when the number of iteration is not exactly known
+        var a = 0;
+        while (a<10){
+            console.log("num", a)
+            a ++
+        }
 
-    let sortNumbers = z.sort((a,b)=>{
-        return a.age - b.age 
-    })
+        //do while loop
+        //var numb 
+        //do{
+            //let input = prompt(`please enter a number between 1 and 10`)
+            //numb = parseInt(input)
+        //} 
+        //while (numb<10)
+        
 
-    console.table(sortNumbers)
-    //prints in asceding order of age
-
-
-    // sort for strings
-    let sortStrings = z.sort((a,b)=>{
-        return (a.name > b.name) ? 1 : (a.name < b.name) ? -1 :0
-    })
-
-    console.log(sortStrings)
-
-    //prints
-    //{name: 'a', age: 10}
-    //{name: 'b', age: 40}
-    //{name: 'c', age: 20}
-    //{name: 'd', age: 9}
-
-    //reduce
-    var numbers = [10,20,30,40]
-    let reducedNumbers = numbers.reduce((total,currItem,index,actualArr)=>{
-        console.log("total", total)
-        console.log("Current value is", currItem)
-        return total + currItem
-    },0)
-    console.log(`Total:`, reducedNumbers)
-
-    //reduce right
-
-    let reduceRight = numbers.reduceRight((total,currItem,index,actualArr)=>{
-        console.log("total", total)
-        console.log("Current value is", currItem)
-        return total + currItem
-    })
-    console.log(`Total:`, reduceRight)
 
 
     </script>
