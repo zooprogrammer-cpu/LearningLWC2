@@ -6,83 +6,35 @@
    
     </body>
     <script>
-        //Looping in JavaScript
-        //For Loop - used when we already know the number of iteration 
-        const alphabets =[
-            {name : 'A'},
-            {name : 'B'},
-            {name : 'C'},
-            {name : 'D'}
-        ]
+    //scope
+    //block scope is local scope
+    function logcolor(){
+        let color = 'blue'
+        console.log(color)
+    } 
+    logcolor()
+    
+    if(true){
+        let color = 'pink'
+        console.log(color)
+    }
 
-        for (i=0; i<alphabets.length ; i++){
-            console.log(`Alphabet is:`,alphabets[i].name)
-        }
-        //Alphabet is: A
-        //Alphabet is: B
-        //Alphabet is: C
-        //Alphabet is: D 
+    //global scope
+    var color2 = 'blue'
+    function returnSkyColor(){
+        return color2; 
+    }
+    console.log(color2)
+    console.log(returnSkyColor());
 
-        //For each loop
-
-        alphabets.forEach((currItem, index, actualArr)=>{
-            console.log(`alphabet is`, currItem.name)
-        })
-        /*
-            alphabet is A
-            alphabet is B
-            alphabet is C
-            alphabet is D
-        */
-
-
-        // For of Loop
-
-        for(let alphabet of alphabets){
-            console.log(`alphabet is`, alphabet.name)
-            if (alphabet.name === 'B'){
-                break;
-            }
-        }
-
-        /*
-            alphabet is A
-            alphabet is B
-        */
-
-        // For in Loop - works in an object
-        let oldCar ={
-            make: 'Toyota',
-            model: 'Tercel',
-            year: '1996'
-        }
-
-        for(let key in oldCar){
-            console.log(`${key} --> ${oldCar[key]} `)
-        }
-
-        //prints
-        //make --> Toyota 
-        //model --> Tercel 
-        //year --> 1996
-
-        //while loop used only when the number of iteration is not exactly known
-        var a = 0;
-        while (a<10){
-            console.log("num", a)
-            a ++
-        }
-
-        //do while loop
-        //var numb 
-        //do{
-            //let input = prompt(`please enter a number between 1 and 10`)
-            //numb = parseInt(input)
-        //} 
-        //while (numb<10)
-        
-
-
+    //scope pollution 
+    let num = 50;
+    function logNum(){
+        num = 100
+        console.log(num)
+    }
+    logNum() // prints 100
+    console.log(num)  //prints 100
 
     </script>
 
