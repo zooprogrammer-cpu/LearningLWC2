@@ -6,35 +6,33 @@
    
     </body>
     <script>
-    //scope
-    //block scope is local scope
-    function logcolor(){
-        let color = 'blue'
-        console.log(color)
-    } 
-    logcolor()
-    
-    if(true){
-        let color = 'pink'
-        console.log(color)
-    }
+  //hoisitng
+        var hoist
+        console.log(hoist)
+        hoist = 'hello' // prints undefined
 
-    //global scope
-    var color2 = 'blue'
-    function returnSkyColor(){
-        return color2; 
-    }
-    console.log(color2)
-    console.log(returnSkyColor());
 
-    //scope pollution 
-    let num = 50;
-    function logNum(){
-        num = 100
-        console.log(num)
-    }
-    logNum() // prints 100
-    console.log(num)  //prints 100
+        function hoistFun(){
+            console.log(message)
+            var message = 'Hello hoisting' 
+
+        }
+        hoistFun() //prints undefined
+
+
+        //function expression cannot be hoisted. It results in uncaught TypeError 
+        s()
+        var s = function(){
+            console.log("expression not hoisted")
+        }
+
+        //function definition is hoisted. No error
+        t()
+        function t(){
+            console.log("definition hoisted")
+        }
+
+        
 
     </script>
 
