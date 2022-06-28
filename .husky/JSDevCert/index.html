@@ -9,79 +9,102 @@
    
     </body>
     <script>
-    //this
+    //Function Expressions
+    var x = function (a,b){
+        return a * b
+    }
+   console.log(x(5,6))
 
-    // 1) in a method this refer to the owner of the method
-    var person ={
-        firstName : "Nikhil",
-        lastName : "Jung",
-        id: 1,
-        getFullName : function (){
+    // Function constructor (not recommended way)
+
+    var func = new Function("a","b","return a * b")
+    console.log(func(5,3))
+
+    // IIFEs
+    //(function (x,y){
+        //return x * y
+    //})(2,3)
+
+    //arrow function
+
+    var xyz = () =>{
+       return 42
+    }
+
+    console.log(xyz())
+
+    function abc(x){
+        return x
+    }
+
+    var abc = (x) => x
+
+    var test=(x,y)=>x + y
+    
+    console.log(test(5,6))
+// tricky question for exam
+    function test2(){
+        return {"name": "ash"}
+    }
+
+    console.log(test2())
+
+    // this does not work since arrow function consider {} as a block 
+    test2 =()=>{
+        return {"name":"dug"}
+    }
+
+    console.log(test2)
+
+    // to solve this, put a bracket around the object - 
+
+    test3=()=>{
+        return ({"name":"dug"})
+    }
+    console.log(test3()) //returns {"name":"dug"}
+    
+
+    ////before arrow, needed to use bind
+
+    var obj = {
+        id:42, 
+        counter: function counter(){
             console.log(this)
-            return this.firstName + " " + this.lastName
+
+            function abc(){
+                console.log(this)
+                console.log("my id is", this.id)
+            }
+            abc.bind(this)()        
         }
     }
-    console.log(person.getFullName)
 
-    //2) this === window //prints true
+   obj.counter() //prints my id is 42
 
-    //3) this in a function represnt the object that own the function 
-
-    function myFunction(){
-        console.log(this);
-
-    }
-    myFunction()
-
-    //4) in an event, this refers to the element that received the event. 
-    function abc(event){
-        console.log(event)
-    }
-
-    //clicking the button prints 
-    // <button onclick="abc(this)">
-    //click
-    //<button>
-
-
-    // 5) Explicit function binding
-
-    var person1 ={
-        firstName1: "Salesforce",
-        lastName1: "dev"
-    }
-    person.getFullName()
-    person.getFullName.call(person1)
-
-    //prints {firstName1: 'Salesforce', lastName1: 'dev'}
-
-    // call also passes arguement
-    var person3 ={
-        firstName : "Ash",
-        lastName : "Basnyat",
-        id: 2,
-        getFullName : function(a,b){
+   // using arrow function, do not need to use bind
+    var obj2 = {
+        id:43, 
+        counter: function counter(){
             console.log(this)
-            return this.firstName + " " + this.lastName + " " + a + ' ' + b;
+
+            var abc=()=>{
+            console.log(this)
+            console.log("my id is", this.id)
+        }
+        abc()      
         }
     }
+    obj2.counter() //prints my id is 43
 
-    //prints {firstName: 'salesforce', lastName: 'dev'}
-
-   var person4 ={
-    firstName: "salesforce",
-    lastName: "dev"
-   }
-
-  console.log(person3.getFullName.call(person4, "A", "B"))
-
-  //prints salesforce dev A B
-
-
-  //apply method - passes arguement in array form 
-
-  console.log(person3.getFullName.apply(person4, ["A", "B"])) 
-
+    // where not to use arrow function. does not work since there is no parent object 
+    var obj5 = {
+        id: 47,
+        counter: () =>{
+            console.log(this)
+            console.log(this.id)
+        }
+    }
+    obj.counter()
     </script>
 
 </html>
