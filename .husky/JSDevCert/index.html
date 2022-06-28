@@ -3,43 +3,85 @@
     <title>JavaScript Session 2</title>
     <body>
         <h1>Objects, Function and Classes</h1>
+        <button onclick="abc(this)">
+            click
+        </button>
    
     </body>
     <script>
-  //hoisitng
-              // first quiz
-              var variable = 10; 
-              function test(){
-                  console.log(variable)
-                  var variable = 20
-                  console.log(variable)
-      
-              }
-      
-              test()
-      
-              //prints 
-              //undefined
-              //20
-      
-              //second quiz
-              var variable2 = 10; 
-              function test2(){
-                  console.log(variable2)
-                  variable2 = 20
-                  console.log(variable2)
-              }
-      
-              test2()
-              //prints 
-              //10
-              //20
+    //this
 
-        
+    // 1) in a method this refer to the owner of the method
+    var person ={
+        firstName : "Nikhil",
+        lastName : "Jung",
+        id: 1,
+        getFullName : function (){
+            console.log(this)
+            return this.firstName + " " + this.lastName
+        }
+    }
+    console.log(person.getFullName)
+
+    //2) this === window //prints true
+
+    //3) this in a function represnt the object that own the function 
+
+    function myFunction(){
+        console.log(this);
+
+    }
+    myFunction()
+
+    //4) in an event, this refers to the element that received the event. 
+    function abc(event){
+        console.log(event)
+    }
+
+    //clicking the button prints 
+    // <button onclick="abc(this)">
+    //click
+    //<button>
+
+
+    // 5) Explicit function binding
+
+    var person1 ={
+        firstName1: "Salesforce",
+        lastName1: "dev"
+    }
+    person.getFullName()
+    person.getFullName.call(person1)
+
+    //prints {firstName1: 'Salesforce', lastName1: 'dev'}
+
+    // call also passes arguement
+    var person3 ={
+        firstName : "Ash",
+        lastName : "Basnyat",
+        id: 2,
+        getFullName : function(a,b){
+            console.log(this)
+            return this.firstName + " " + this.lastName + " " + a + ' ' + b;
+        }
+    }
+
+    //prints {firstName: 'salesforce', lastName: 'dev'}
+
+   var person4 ={
+    firstName: "salesforce",
+    lastName: "dev"
+   }
+
+  console.log(person3.getFullName.call(person4, "A", "B"))
+
+  //prints salesforce dev A B
+
+
+  //apply method - passes arguement in array form 
+
+  console.log(person3.getFullName.apply(person4, ["A", "B"])) 
 
     </script>
-
-    
-
 
 </html>
