@@ -9,26 +9,14 @@
    
     </body>
     <script>
-    // Object destructuring
-    var employee = {
-        firstName : "Ash",
-        lastName : "Basnyat",
-        position : "Developer",
-        yearHired : 2021
+    // Object.freeze
+    const person5={
+        name:"ash"
     }
+    Object.freeze(person5)
+    person5.name ="ben"
+    console.log(person5) // prints {name: 'ash'}
 
-    var {firstName, lastName , position , z="dummy" } = employee
-
-    console.log(firstName) //prints Ash 
-    console.log(z) //prints dummy
-
-    //Array destructuring
-    var arr = ["A","B","C"]
-
-    var [first, second, third, fourth="D"] = arr
-
-    console.log(first) //prints A
-    console.log(fourth) //prints D
 
     </script>
 
