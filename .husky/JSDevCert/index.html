@@ -9,102 +9,27 @@
    
     </body>
     <script>
-    //Function Expressions
-    var x = function (a,b){
-        return a * b
-    }
-   console.log(x(5,6))
-
-    // Function constructor (not recommended way)
-
-    var func = new Function("a","b","return a * b")
-    console.log(func(5,3))
-
-    // IIFEs
-    //(function (x,y){
-        //return x * y
-    //})(2,3)
-
-    //arrow function
-
-    var xyz = () =>{
-       return 42
+    // Object destructuring
+    var employee = {
+        firstName : "Ash",
+        lastName : "Basnyat",
+        position : "Developer",
+        yearHired : 2021
     }
 
-    console.log(xyz())
+    var {firstName, lastName , position , z="dummy" } = employee
 
-    function abc(x){
-        return x
-    }
+    console.log(firstName) //prints Ash 
+    console.log(z) //prints dummy
 
-    var abc = (x) => x
+    //Array destructuring
+    var arr = ["A","B","C"]
 
-    var test=(x,y)=>x + y
-    
-    console.log(test(5,6))
-// tricky question for exam
-    function test2(){
-        return {"name": "ash"}
-    }
+    var [first, second, third, fourth="D"] = arr
 
-    console.log(test2())
+    console.log(first) //prints A
+    console.log(fourth) //prints D
 
-    // this does not work since arrow function consider {} as a block 
-    test2 =()=>{
-        return {"name":"dug"}
-    }
-
-    console.log(test2)
-
-    // to solve this, put a bracket around the object - 
-
-    test3=()=>{
-        return ({"name":"dug"})
-    }
-    console.log(test3()) //returns {"name":"dug"}
-    
-
-    ////before arrow, needed to use bind
-
-    var obj = {
-        id:42, 
-        counter: function counter(){
-            console.log(this)
-
-            function abc(){
-                console.log(this)
-                console.log("my id is", this.id)
-            }
-            abc.bind(this)()        
-        }
-    }
-
-   obj.counter() //prints my id is 42
-
-   // using arrow function, do not need to use bind
-    var obj2 = {
-        id:43, 
-        counter: function counter(){
-            console.log(this)
-
-            var abc=()=>{
-            console.log(this)
-            console.log("my id is", this.id)
-        }
-        abc()      
-        }
-    }
-    obj2.counter() //prints my id is 43
-
-    // where not to use arrow function. does not work since there is no parent object 
-    var obj5 = {
-        id: 47,
-        counter: () =>{
-            console.log(this)
-            console.log(this.id)
-        }
-    }
-    obj.counter()
     </script>
 
 </html>
