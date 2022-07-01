@@ -9,13 +9,33 @@
    
     </body>
     <script>
-    // Object.freeze
-    const person5={
-        name:"ash"
-    }
-    Object.freeze(person5)
-    person5.name ="ben"
-    console.log(person5) // prints {name: 'ash'}
+// spread operator
+        var arr = [6,7,8,9]
+
+        var newArr = [...arr,9,9,9,9]
+
+        console.log(newArr)
+
+    
+//Pass elements of an array to a function as seperate arguements
+
+function add(a,b,c){
+    return a + b + c; 
+}
+
+var args = [1,2,3,4,5]; 
+
+add(args)
+
+console.log(args) // it does not add, just displays [1, 2, 3, 4, 5]
+
+console.log(add(...args))// prints 6
+
+// convert string to array
+console.log([..."ash"]) //prints ['a', 's', 'h']
+
+
+
 
 
     </script>
