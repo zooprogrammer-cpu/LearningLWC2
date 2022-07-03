@@ -9,21 +9,30 @@
    
     </body>
     <script>
-        var Person = function(firstName, lastName , age, grade){
-            this.firstName  = firstName
-            this.lastName = lastName
+        // Object inheritance
+        function Animal(name,age){
+            this.name = name,
             this.age = age
-            this.grade = grade
-            
         }
 
-        Person.prototype.getFullName = function(){
-            return this.firstName + ' ' + this.lastName
+        Animal.prototype.eats = function(){
+            console.log(`This animal, ${this.name}, is eating`)
         }
 
-        let user3 = new Person('Brita', 'Kilburg', 25, 'a')
-        console.log(user3)
-        console.log(user3.getFullName())
+        function Dog(name,age,breed){
+            Animal.call(this,name,age)
+            this.breed = breed
+            this.logBreed = function(){
+                console.log(this.name + ' is a ' + this.breed)
+            }
+        }
+
+        var d1 = new Dog("Dug", 4, "Doodle")
+        console.log(d1)
+        console.log(d1.logBreed())
+        // lets confirm if it is inherting the prototype
+        console.log(d1.eats()) // this results in an Uncaught Type Error
+
 
     </script>
 
