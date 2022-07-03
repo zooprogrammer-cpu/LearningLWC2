@@ -9,47 +9,22 @@
    
     </body>
     <script>
-        let user1 = {
-            firstName : 'Ash',
-            lastName : 'Basnyat',
-            age: 30,
-            grade: 'a',
-            getFullName : function (){
-                return this.firstName + ' ' + this.lastName
-            }
-
-        }
-
-        let user2 = {
-            firstName : 'John',
-            lastName : 'Doe',
-            age: 32,
-            grade: 'b',
-            getFullName : function (){
-                return this.firstName + ' ' + this.lastName
-            }
-
-        }
-
-        // rather than repeating this all the time, lets create a 
-        //constructor function which is a blueprint.
-        // can create a new object using the blueprint
-
         var Person = function(firstName, lastName , age, grade){
-            this.firstName  = firstName,
-            this.lastName = lastName,
-            this.age = age,
-            this.grade = grade,
-            this.getFullName = function(){
-                this.firstName + ' ' + this.lastName
-            }
+            this.firstName  = firstName
+            this.lastName = lastName
+            this.age = age
+            this.grade = grade
+            
         }
 
-        var user3 = new Person('Brita', 'Kilburg', 25, 'a')
-        console.log(user3)
+        Person.prototype.getFullName = function(){
+            return this.firstName + ' ' + this.lastName
+        }
 
-        // but getFullName should be a repeatable function, could hurt performance
-        
+        let user3 = new Person('Brita', 'Kilburg', 25, 'a')
+        console.log(user3)
+        console.log(user3.getFullName())
+
     </script>
 
 </html>
