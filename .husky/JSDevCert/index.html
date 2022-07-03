@@ -20,6 +20,9 @@
         }
 
         function Dog(name,age,breed){
+            //this.name = name,
+            //this.age = age
+            // why not reuse name and age from Animal Function?
             Animal.call(this,name,age)
             this.breed = breed
             this.logBreed = function(){
@@ -31,8 +34,14 @@
         console.log(d1)
         console.log(d1.logBreed())
         // lets confirm if it is inherting the prototype
-        console.log(d1.eats()) // this results in an Uncaught Type Error
-
+        // console.log(d1.eats()) // this results in an Uncaught Type Error
+        // Prototype inheritance
+        // tie the animal prototype to dog prototype
+        Dog.prototype = Object.create(Animal.prototype)
+        var d2 = new Dog("Bluto", 99, "Hound")
+        console.log(d2)
+        d2.eats() 
+        //prints This animal, Bluto, is eating
 
     </script>
 
