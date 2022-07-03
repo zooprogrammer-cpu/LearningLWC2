@@ -9,51 +9,47 @@
    
     </body>
     <script>
-// spread operator
-        var arr = [6,7,8,9]
+        let user1 = {
+            firstName : 'Ash',
+            lastName : 'Basnyat',
+            age: 30,
+            grade: 'a',
+            getFullName : function (){
+                return this.firstName + ' ' + this.lastName
+            }
 
-        var newArr = [...arr,9,9,9,9]
+        }
 
-        console.log(newArr)
+        let user2 = {
+            firstName : 'John',
+            lastName : 'Doe',
+            age: 32,
+            grade: 'b',
+            getFullName : function (){
+                return this.firstName + ' ' + this.lastName
+            }
 
-    
-//Pass elements of an array to a function as seperate arguements
+        }
 
-function add(a,b,c){
-    return a + b + c; 
-}
+        // rather than repeating this all the time, lets create a 
+        //constructor function which is a blueprint.
+        // can create a new object using the blueprint
 
-var args = [1,2,3,4,5]; 
+        var Person = function(firstName, lastName , age, grade){
+            this.firstName  = firstName,
+            this.lastName = lastName,
+            this.age = age,
+            this.grade = grade,
+            this.getFullName = function(){
+                this.firstName + ' ' + this.lastName
+            }
+        }
 
-add(args)
+        var user3 = new Person('Brita', 'Kilburg', 25, 'a')
+        console.log(user3)
 
-console.log(args) // it does not add, just displays [1, 2, 3, 4, 5]
-
-console.log(add(...args))// prints 6
-
-// convert string to array
-console.log([..."ash"]) //prints ['a', 's', 'h']
-
-// Rest Operator - when spread operator is called as a parameter in a function 
-// converts anything to an array
-function add2 (...args2){
-    console.log(args2)
-}
-
-add2(5,6,7,8) // prints [5,6,7,8]
-
-// another rest operator. converts everything after ... to array
-function xyz(x,y,...z){
-    console.log(x,y)
-    console.log(z)
-}
-
-xyz("Hi", "Hello", "Good Morning", "Good Night")
-
-
-
-
-
+        // but getFullName should be a repeatable function, could hurt performance
+        
     </script>
 
 </html>
