@@ -1,11 +1,15 @@
-// Named export
-export const programmingList =['JavaScript', 'Python']
+// Export default (export all)
+export default{
+    programmingList : ['JavaScript', 'Python'],
 
-export const helloHandler =()=>{
-    return "Hello Ash"
+    helloHandler :()=>{
+        return "Hello Ash"
+    },
+    
+    bookDetails :{
+        name: "Salesforce for JS",
+        author: "Ash Basnyat"
+    }
 }
 
-export const bookDetails={
-    name: "Salesforce for JS",
-    author: "Ash Basnyat"
-}
+
