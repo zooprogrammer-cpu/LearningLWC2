@@ -9,40 +9,51 @@
    
     </body>
     <script>
-        // Object inheritance
-        function Animal(name,age){
-            this.name = name,
-            this.age = age
-        }
-
-        Animal.prototype.eats = function(){
-            console.log(`This animal, ${this.name}, is eating`)
-        }
-
-        function Dog(name,age,breed){
-            //this.name = name,
-            //this.age = age
-            // why not reuse name and age from Animal Function?
-            Animal.call(this,name,age)
-            this.breed = breed
-            this.logBreed = function(){
-                console.log(this.name + ' is a ' + this.breed)
+        // class and class inheritance
+        class Animal{
+            constructor(name,age){
+                console.log(name, ` is an animal`)
+                this.name = name
+                this.age = age
+            }
+            eats(){
+                console.log(this.name + ` is eating`)
             }
         }
 
-        var d1 = new Dog("Dug", 4, "Doodle")
-        console.log(d1)
-        console.log(d1.logBreed())
-        // lets confirm if it is inherting the prototype
-        // console.log(d1.eats()) // this results in an Uncaught Type Error
-        // Prototype inheritance
-        // tie the animal prototype to dog prototype
-        Dog.prototype = Object.create(Animal.prototype)
-        var d2 = new Dog("Bluto", 99, "Hound")
-        console.log(d2)
-        d2.eats() 
-        //prints This animal, Bluto, is eating
+        var animal1 = new  Animal("Bruno", 4)
+        console.log(animal1.eats())
+        //prints: animal1 is eating
+        // lets create and inheritance
 
+        class Dog{
+            constructor(breed){
+                this.breed = breed
+            }
+            logBreed(){
+                console.log(`The dog's breed is:`,this.breed)
+            }
+        }
+
+        var dog1 = new Dog('Bulldog')
+        console.log(dog1)
+        //Dog {breed: 'Bulldog'}
+
+        // now we want to inheret the properties from Animal1 to Dog1
+        class Dog2 extends Animal{
+            constructor (name,age,breed){
+                super(name,age)
+                this.breed = breed
+            }
+            logBreed(){
+                console.log(`The dog's breed is:`,this.breed)
+            }
+        }
+
+        var dog2 = new Dog2('Dug', '4', "Doodle") 
+        console.log(dog2.logBreed()) // prints The dog's breed is: Doodle
+        console.log(dog2.eats()) //prints Dug is eating. Inherited the method from Animal
+    
     </script>
 
 </html>
