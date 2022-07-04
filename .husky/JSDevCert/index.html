@@ -9,51 +9,7 @@
    
     </body>
     <script>
-        // class and class inheritance
-        class Animal{
-            constructor(name,age){
-                console.log(name, ` is an animal`)
-                this.name = name
-                this.age = age
-            }
-            eats(){
-                console.log(this.name + ` is eating`)
-            }
-        }
-
-        var animal1 = new  Animal("Bruno", 4)
-        console.log(animal1.eats())
-        //prints: animal1 is eating
-        // lets create and inheritance
-
-        class Dog{
-            constructor(breed){
-                this.breed = breed
-            }
-            logBreed(){
-                console.log(`The dog's breed is:`,this.breed)
-            }
-        }
-
-        var dog1 = new Dog('Bulldog')
-        console.log(dog1)
-        //Dog {breed: 'Bulldog'}
-
-        // now we want to inheret the properties from Animal1 to Dog1
-        class Dog2 extends Animal{
-            constructor (name,age,breed){
-                super(name,age)
-                this.breed = breed
-            }
-            logBreed(){
-                console.log(`The dog's breed is:`,this.breed)
-            }
-        }
-
-        var dog2 = new Dog2('Dug', '4', "Doodle") 
-        console.log(dog2.logBreed()) // prints The dog's breed is: Doodle
-        console.log(dog2.eats()) //prints Dug is eating. Inherited the method from Animal
-    
+       // exports modules
     </script>
 
 </html>
