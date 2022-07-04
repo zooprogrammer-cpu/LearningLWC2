@@ -1,7 +1,7 @@
-import {programmingList, helloHandler, bookDetails} from './modules/utils.js'
+// import {programmingList, helloHandler, bookDetails} from './modules/utils.js'
+import * as UTILS from './modules/utils.js'
+console.log(UTILS.bookDetails)
 
-console.log(bookDetails)
+console.log(UTILS.helloHandler())
 
-console.log(helloHandler())
-
-console.log(programmingList)
+console.log(UTILS.programmingList)
