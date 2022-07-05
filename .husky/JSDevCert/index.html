@@ -9,7 +9,34 @@
    
     </body>
     <script>
-       // exports modules
+    //synchronous callback
+    let numbers = [1,2,3,4,5,6,7]
+    const num =  numbers.filter(item=>
+         item>4
+    )
+    console.log(num)
+
+    //asynchronous callback example 1
+    function loadData(callback){
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET',"https://api.github.com/orgs/nodejs")
+        xhr.onload = function(){
+            callback(xhr.response)
+        }
+        xhr.send()
+    }
+    loadData(function(result){
+        console.log(result)
+    })
+    console.log(`data is present`)
+
+    //asynchronous callback example 2
+    setTimeout(function(a,b){
+        console.log(a)
+        console.log(b)
+
+    },3000,"salesforce","hello")
+
     </script>
 
 </html>
