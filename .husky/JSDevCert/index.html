@@ -9,33 +9,24 @@
    
     </body>
     <script>
-    //synchronous callback
-    let numbers = [1,2,3,4,5,6,7]
-    const num =  numbers.filter(item=>
-         item>4
-    )
-    console.log(num)
+//promise
+let p = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve(10);
+    },3000)
+});
 
-    //asynchronous callback example 1
-    function loadData(callback){
-        let xhr = new XMLHttpRequest()
-        xhr.open('GET',"https://api.github.com/orgs/nodejs")
-        xhr.onload = function(){
-            callback(xhr.response)
-        }
-        xhr.send()
-    }
-    loadData(function(result){
-        console.log(result)
-    })
-    console.log(`data is present`)
+p.then((result)=>{
+    console.log(result);
+    return result *2
+}).then((result1)=>{
+    console.log(result1)
+    //return result1 *3
+    throw new Error("something went wrong")
+}).catch(error=>{
+    console.error(error)
+})
 
-    //asynchronous callback example 2
-    setTimeout(function(a,b){
-        console.log(a)
-        console.log(b)
-
-    },3000,"salesforce","hello")
 
     </script>
 
