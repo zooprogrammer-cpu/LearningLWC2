@@ -9,23 +9,18 @@
    
     </body>
     <script>
-//promise
-let p = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        resolve(10);
-    },3000)
-});
+//async 
+// the word async infront of function means 
+// the function always return a promise
+async function abc(){
+    return "hello"
+}
 
-p.then((result)=>{
-    console.log(result);
-    return result *2
-}).then((result1)=>{
-    console.log(result1)
-    //return result1 *3
-    throw new Error("something went wrong")
-}).catch(error=>{
-    console.error(error)
+abc().then(result=>{
+    console.log(result)
 })
+
+//await 
 
 
     </script>
