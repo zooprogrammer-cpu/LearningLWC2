@@ -9,20 +9,18 @@
    
     </body>
     <script>
-//async 
-// the word async infront of function means 
-// the function always return a promise
-async function abc(){
-    return "hello"
+//generator
+
+function* generate(){
+    console.log(`Invoked 1st time`)
+    yield 1;
+    console.log(`Invoked 2nd time`)
+    yield 2;
+
 }
-
-abc().then(result=>{
-    console.log(result)
-})
-
-//prints hello
-
-
+let gen = generate()
+gen.next() // Prints: Invoked 1st time
+gen.next() // Prints : Invoked 2nd time
 
 
     </script>
