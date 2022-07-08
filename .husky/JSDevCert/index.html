@@ -14,34 +14,14 @@
    
     </body>
     <script>
-       //fecth element by an id. id should be unique
-        let elemId = document.getElementById("hello")
-        console.log(elemId)
-        //prints div#hello
 
-        //fecth element using class name
-        let elemClass = document.getElementsByClassName("address")
-        console.log(elemClass)
-        //0: div.address
-        //1: div.address
-        //2: div.address
+        //fecth all elements using querySelectorAll - div tag
+        let byTag = document.querySelectorAll("div")
+        console.log(byTag)
 
-        //fetch element using querySelector -works with id and class
-        //but just the first element
-        let byId = document.querySelector("#hello")
+        //fecth all elements using querySelectorAll - div tag
+        let byId = document.querySelectorAll("#hello")
         console.log(byId)
-        //prints div#hello
-
-        // fetch element using querySelector - class
-        let byClass = document.querySelector(".address")
-        console.log(byClass.innerHTML)
-        //prints what is the street
-
-        //fecth element using querySelector - div tag
-        let byTag = document.querySelector("div")
-        console.log(byTag.innerHTML)
-        //prints Hello Everyone
-
 
         
 
