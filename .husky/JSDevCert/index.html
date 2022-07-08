@@ -15,14 +15,18 @@
     </body>
     <script>
 
-    //Traversing elements - all children
-    let bodyTag = document.querySelector("body").children
-    console.log(bodyTag)
-    
-     //Traversing elements - first children
-     let bodyTagFirst = document.querySelector("body").firstElementChild
-     console.log(bodyTagFirst) 
-
+   // Manipulating elements
+   // innerText -brings text of the particular element
+   let hello = document.querySelector("#hello").innerText
+   = 'Hurray'
+   console.log(hello)
+   //prints Hurray instead of hello. Also has hurray in DOM      
+   
+   
+   //innerHTML 
+   let hi = document.querySelector("#hello").innerHTML
+   = "<div>This is cool</div>"
+   console.log(hi)
 
     </script>
 
