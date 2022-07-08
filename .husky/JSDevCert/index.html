@@ -3,7 +3,7 @@
     <title>JavaScript Session 3</title>
     <body>
         <h1>Browser and Events</h1>
-        <div id="hello">Hello everyone</div>
+        <div id="hello" variant="brand">Hello everyone</div>
         <div class="address">What is the steet</div>
         <div class="address">What is the city</div>
         <div class="address">What is the zip</div>
@@ -15,18 +15,16 @@
     </body>
     <script>
 
-   // Manipulating elements
-   // innerText -brings text of the particular element
-   let hello = document.querySelector("#hello").innerText
-   = 'Hurray'
-   console.log(hello)
-   //prints Hurray instead of hello. Also has hurray in DOM      
-   
-   
-   //innerHTML 
-   let hi = document.querySelector(".address").innerHTML
-   = "<div>This is cool</div>"
-   console.log(hi)
+   // Manipulating attributes
+   //getAttribute
+   let elem = document.querySelector('#hello').getAttribute("variant")
+   console.log(elem)
+   // prints brand
+   //setAttribute
+   let elem2 = document.querySelector('#hello').setAttribute("variant","success")
+   console.log(elem2)
+
+
 
     </script>
 
