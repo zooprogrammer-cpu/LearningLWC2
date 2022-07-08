@@ -1,26 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <title>JavaScript Session 2</title>
+    <title>JavaScript Session 3</title>
     <body>
-        <h1>Objects, Function and Classes</h1>
-        <button onclick="abc(this)">
-            click
+        <h1>Browser and Events</h1>
+        <div id="hello">Hello everyone</div>
+        <div class="address">What is the steet</div>
+        <div class="address">What is the city</div>
+        <div class="address">What is the zip</div>
+
+        <button onclick="clearInterval(intId)">
+            Stop time
         </button>
    
     </body>
     <script>
-//generator
+       //fecth element by an id. id should be unique
+        let elemId = document.getElementById("hello")
+        console.log(elemId)
+        //prints div#hello
 
-function* generate(){
-    console.log(`Invoked 1st time`)
-    yield 1;
-    console.log(`Invoked 2nd time`)
-    yield 2;
+        //fecth element using class name
+        let elemClass = document.getElementsByClassName("address")
+        console.log(elemClass)
+        //0: div.address
+        //1: div.address
+        //2: div.address
 
-}
-let gen = generate()
-gen.next() // Prints: Invoked 1st time
-gen.next() // Prints : Invoked 2nd time
+        //fetch element using querySelector -works with id and class
+        //but just the first element
+        let byId = document.querySelector("#hello")
+        console.log(byId)
+        //prints div#hello
+
+        // fetch element using querySelector - class
+        let byClass = document.querySelector(".address")
+        console.log(byClass.innerHTML)
+        //prints what is the street
+
+        //fecth element using querySelector - div tag
+        let byTag = document.querySelector("div")
+        console.log(byTag.innerHTML)
+        //prints Hello Everyone
+
+
+        
 
 
     </script>
