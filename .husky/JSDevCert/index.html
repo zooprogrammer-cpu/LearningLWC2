@@ -15,15 +15,13 @@
     </body>
     <script>
 
-        //fecth all elements using querySelectorAll - div tag
-        let byTag = document.querySelectorAll("div")
-        console.log(byTag)
-
-        //fecth all elements using querySelectorAll - div tag
-        let byId = document.querySelectorAll("#hello")
-        console.log(byId)
-
-        
+    //Traversing elements - all children
+    let bodyTag = document.querySelector("body").children
+    console.log(bodyTag)
+    
+     //Traversing elements - first children
+     let bodyTagFirst = document.querySelector("body").firstElementChild
+     console.log(bodyTagFirst) 
 
 
     </script>
