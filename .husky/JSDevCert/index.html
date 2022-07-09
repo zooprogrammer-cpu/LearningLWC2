@@ -8,22 +8,58 @@
         <div class="address">What is the city</div>
         <div class="address">What is the zip</div>
 
-        <button onclick="clearInterval(intId)">
-            Stop time
+        <button id="btn">
+            Click Me        
+        </button>
+        <button id="remove">
+            Remove Me        
         </button>
    
     </body>
     <script>
 
-   // Manipulating attributes
-   //getAttribute
-   let elem = document.querySelector('#hello').getAttribute("variant")
-   console.log(elem)
-   // prints brand
-   //setAttribute
-   let elem2 = document.querySelector('#hello').setAttribute("variant","success")
-   console.log(elem2)
+   //Manipulating elements style
+   document.querySelector("#hello").style.fontSize ="40px"
+        
+   //visbility - options are visbile or hidden
+   document.querySelector("#hello").style.visibility ="visbile"
 
+   //display - options are none or block
+   document.querySelector("#hello").style.display ="block"
+
+   //classList - can add a class called show to id="hello".
+   // can also do classList.remove("show")
+   console.log(document.querySelector('#hello').classList.add("show"))
+
+
+  //JavaScript Events
+  //HTML Event Handler Attributes
+
+  //function showAlert(){
+    //alert("Hey guys")
+  //}
+
+  //second method -HTML handler property
+  //let btn = document.querySelector("#btn")
+  //btn.onclick = function(){
+   // alert("Clicked")
+  //}
+
+  //Event Listener
+  //1. addEventListner() Method
+  //element.addEventListener(event,function,useCapture)
+  let clickbtn = document.querySelector('#btn');
+  let showAlert2 = function(){
+    alert('Clicked2!');
+  }
+
+  clickbtn.addEventListener('click',showAlert2)
+
+  //2. removeEventListener() method
+  let removebtn = document.querySelector('#remove')
+  removebtn.addEventListener('click',function(){
+    btn.removeEventListener('click',showAlert2)
+  })
 
 
     </script>
