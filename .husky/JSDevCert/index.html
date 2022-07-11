@@ -2,32 +2,29 @@
 <html>
     <title>JavaScript Session 3</title>
     <body id="body">
-       <div id="div_wrapper">
-            <button id="btn">
-                Click Me
-            </button>
-       </div>
-   
+        <button id="btn">Click Me</button>
+        <div id="msg"></div>
     </body>
     <script>
-        //btn code
-        let btn = document.querySelector('#btn');
-        btn.addEventListener('click',function(){
-            alert ("Button was clicked")
-        })
+    //custom events
+    //create an event
+    let btn = document.querySelector('#btn')
+    let msg = document.querySelector('#msg')
 
-        //div code
-        let div_wrapper = document.querySelector('#div_wrapper');
-        div_wrapper.addEventListener('click',function(){
-            alert("div was clicked")
+    btn.addEventListener("click", function(e){
+        //creation - whenver someone clicks the button,
+        //we create a custom event
+        let helloEvent = new CustomEvent("showmsg",{
+            detail: "hello msg"
         })
+        //trigger
+        btn.dispatchEvent(helloEvent)
+    })
 
-        //body code
-        let body = document.querySelector('#body');
-        body.addEventListener('click',function(){
-            alert("body was clicked")
-        })
-
+    btn.addEventListener("showmsg", function(e){
+        console.log(e.detail)
+        //printing the message in the div tag
+        msg.innerText = e.detail
+    })
     </script>
-
 </html>
