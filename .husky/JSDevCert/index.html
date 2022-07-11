@@ -3,28 +3,12 @@
     <title>JavaScript Session 3</title>
     <body id="body">
         <button id="btn">Click Me</button>
-        <div id="msg"></div>
     </body>
     <script>
-    //custom events
-    //create an event
-    let btn = document.querySelector('#btn')
-    let msg = document.querySelector('#msg')
-
-    btn.addEventListener("click", function(e){
-        //creation - whenver someone clicks the button,
-        //we create a custom event
-        let helloEvent = new CustomEvent("showmsg",{
-            detail: "hello msg"
-        })
-        //trigger
-        btn.dispatchEvent(helloEvent)
-    })
-
-    btn.addEventListener("showmsg", function(e){
-        console.log(e.detail)
-        //printing the message in the div tag
-        msg.innerText = e.detail
-    })
+   // Event Object
+   let btn = document.querySelector('#btn')
+   btn.addEventListener("click",function(event){
+        console.log(event.currentTarget)
+   })
     </script>
 </html>
