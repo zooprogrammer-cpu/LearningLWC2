@@ -1,66 +1,32 @@
 <!DOCTYPE html>
 <html>
     <title>JavaScript Session 3</title>
-    <body>
-        <h1>Browser and Events</h1>
-        <div id="hello" variant="brand">Hello everyone</div>
-        <div class="address">What is the steet</div>
-        <div class="address">What is the city</div>
-        <div class="address">What is the zip</div>
-
-        <button id="btn">
-            Click Me        
-        </button>
-        <button id="remove">
-            Remove Me        
-        </button>
+    <body id="body">
+       <div id="div_wrapper">
+            <button id="btn">
+                Click Me
+            </button>
+       </div>
    
     </body>
     <script>
+        //btn code
+        let btn = document.querySelector('#btn');
+        btn.addEventListener('click',function(){
+            alert ("Button was clicked")
+        })
 
-   //Manipulating elements style
-   document.querySelector("#hello").style.fontSize ="40px"
-        
-   //visbility - options are visbile or hidden
-   document.querySelector("#hello").style.visibility ="visbile"
+        //div code
+        let div_wrapper = document.querySelector('#div_wrapper');
+        div_wrapper.addEventListener('click',function(){
+            alert("div was clicked")
+        })
 
-   //display - options are none or block
-   document.querySelector("#hello").style.display ="block"
-
-   //classList - can add a class called show to id="hello".
-   // can also do classList.remove("show")
-   console.log(document.querySelector('#hello').classList.add("show"))
-
-
-  //JavaScript Events
-  //HTML Event Handler Attributes
-
-  //function showAlert(){
-    //alert("Hey guys")
-  //}
-
-  //second method -HTML handler property
-  //let btn = document.querySelector("#btn")
-  //btn.onclick = function(){
-   // alert("Clicked")
-  //}
-
-  //Event Listener
-  //1. addEventListner() Method
-  //element.addEventListener(event,function,useCapture)
-  let clickbtn = document.querySelector('#btn');
-  let showAlert2 = function(){
-    alert('Clicked2!');
-  }
-
-  clickbtn.addEventListener('click',showAlert2)
-
-  //2. removeEventListener() method
-  let removebtn = document.querySelector('#remove')
-  removebtn.addEventListener('click',function(){
-    btn.removeEventListener('click',showAlert2)
-  })
-
+        //body code
+        let body = document.querySelector('#body');
+        body.addEventListener('click',function(){
+            alert("body was clicked")
+        })
 
     </script>
 
