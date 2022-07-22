@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <title>Async JS</title>
+    <title>Decorator Functions</title>
     <body id="body">
         <div><button id="start">Start</button></div>
         <a href="https://www.google.com" id="link">Google</a>
       
     </body>
     <script>
-        let date; 
-        let intro; 
-        const start = document.querySelector('#start')
-        
-
-        const showDate = function(){
-            console.log(`${intro} ${date}`)
-        }
-
-        start.addEventListener('click', showDate)
-
-        date = new Date()
-        intro = "Today's Date is:"
-        console.log("Program is running!")
+        function displayName(name){
+            console.log(name)
+          }
+          
+          function displayNameDecorator(fn){
+            return function(name){
+              const str = `Welcome to the hotel. ${name}`
+              fn (str)
+            }
+          }
+          
+          const customerName = displayNameDecorator(displayName)
+          
+          customerName(`John Wayne`)
 
 
     </script>
