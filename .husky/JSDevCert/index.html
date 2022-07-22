@@ -7,21 +7,37 @@
       
     </body>
     <script>
-        function displayName(name){
-            console.log(name)
-          }
-          
-          function displayNameDecorator(fn){
-            return function(name){
-              const str = `Welcome to the hotel. ${name}`
-              fn (str)
+     var data; 
+
+     //Decorator function to handle errors
+     function errorHandlerDecorator(fn){
+        return function(...args){
+            try{
+                console.log("Trying function" + fn.name)
+                fn(...args);
+            } catch(err){
+                console.log(err)
             }
-          }
-          
-          const customerName = displayNameDecorator(displayName)
-          
-          customerName(`John Wayne`)
+        }
 
+    }
 
+    function parse(str){
+        let obj =JSON.parse(str)
+        console.log(obj)
+        return obj;
+    }
+
+    //Function to get details from local storage
+    function getUser(){
+        data.user = localStorage.getItem('user')
+
+    }
+
+    let parseFn = errorHandlerDecorator(parse);
+    let getUserFn = errorHandlerDecorator(getUser);
+
+    getUserFn();
+    parseFn("/{}");
     </script>
 </html>
