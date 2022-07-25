@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <title>Decorator Functions</title>
+    <title>Async Await</title>
     <body id="body">
         <div><button id="start">Start</button></div>
         <a href="https://www.google.com" id="link">Google</a>
       
     </body>
     <script>
-     var data; 
+        const posts =[
+        {title: 'Post One', body: 'This is Post One'},
+        {title: 'Post Two', body: 'This is Post Two'}
+        ]
 
-     //Decorator function to handle errors
-     function errorHandlerDecorator(fn){
-        return function(...args){
-            try{
-                console.log("Trying function" + fn.name)
-                fn(...args);
-            } catch(err){
-                console.log(err)
-            }
+        function getPosts(){
+            setTimeout(()=>{
+                let output = ''; 
+                posts.forEach((post)=>{
+                    output += `<li>${post.title}</li>`
+                });
+                document.body.innerHTML = output; 
+            },1000)
         }
 
-    }
+        function createPost(post){
+            setTimeout(()=>{
+                posts.push(post)
+            }, 0000)
+        }
 
-    function parse(str){
-        let obj =JSON.parse(str)
-        console.log(obj)
-        return obj;
-    }
+        getPosts()
 
-    //Function to get details from local storage
-    function getUser(){
-        data.user = localStorage.getItem('user')
+        createPost({title: 'Post Three', body: 'This is Post Three'})
 
-    }
-
-    let parseFn = errorHandlerDecorator(parse);
-    let getUserFn = errorHandlerDecorator(getUser);
-
-    getUserFn();
-    parseFn("/{}");
     </script>
 </html>
