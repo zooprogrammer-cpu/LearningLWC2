@@ -38,19 +38,26 @@
         }
 
         //Async Await
-        async function init(){
-            try{
-                await createPost({title:'Post Three', body:'Thi sis post three'})
+        //async function init(){
+            //try{
+                //await createPost({title:'Post Three', body:'Thi sis post three'})
 
-            }
-            catch(error){
-                console.log(`There is a problem)`, error)
-            }
+            //}
+            //catch(error){
+                //console.log(`There is a problem)`, error)
+            //}
 
-            getPosts()
-        }
+            //getPosts()
+        //}
+        //Async Await with Fetch
+        async function fetchUsers(){
+            const res = await fetch('https://jsonplaceholder.typicode.com/users')
+            const data = await res.json()
+            console.log(data)
 
-        init()
+        }   
+        
+        fetchUsers()
 
 
 
