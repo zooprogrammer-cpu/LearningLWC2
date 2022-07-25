@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <title>Hoisting</title>
+    <body id="body">
+        <div><button id="start">Start</button></div>
+        <a href="https://www.google.com" id="link">Google</a>
+      
+    </body>
+    <script>
+        //console.log(x)
+        let x = 10
+        let y = 20
+
+        function getSum(a,b){
+            var sum = a + b
+            return sum
+        }
+
+        var sum1 = getSum(x,y)
+
+    </script>
+</html>
