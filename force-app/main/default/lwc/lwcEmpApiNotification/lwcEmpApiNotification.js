@@ -8,7 +8,6 @@ export default class LwcEmpApiNotification extends LightningElement {
     channelName = "/event/empApiEvent__e";
     isSubscribeDisabled = false;
     isUnsubscribeDisabled = !this.isSubscribeDisabled;
-
     subscription = {};
 
     // Tracks changes to channelName text field
@@ -18,36 +17,58 @@ export default class LwcEmpApiNotification extends LightningElement {
 
     // Initializes the component
     connectedCallback() {
-        // Register error listener
-        this.registerErrorListener();
-    }
-
-    // Handles subscribe button click
-    handleSubscribe() {
-        // Callback invoked whenever a new event message is received
         const self = this; 
-        const messageCallback = function (response) {
-            //console.log('New message received: ', JSON.stringify(response.data));
-            //this.message = response.data.payload.message__c; 
+        const toastCallback = function (response){
             console.log('message received: ', response.data.payload.message__c);
             self.message = response.data.payload.message__c;
-            this.toastMessage = response.data.payload.message__c; 
-            //toastHandler(self.message);
+            //this.toastMessage = response.data.payload.message__c; 
+            //self.toastData = response['data']['payload'];
+            //toastData = self.toastData; 
+        }
+        //this.showToast("Success",this.message,"success")
 
-            // Response contains the payload of the new message received
-        };
+        const toastEvent = new ShowToastEvent({
+            title : 'Success',
+            message: 'yesssss',
+            variant: 'success'
+        });
+        self.dispatchEvent(toastEvent);
+        
+        // Register error listener
+        this.registerErrorListener();
 
         // Invoke subscribe method of empApi. Pass reference to messageCallback
-        subscribe(this.channelName, -1, messageCallback).then((response) => {
+        subscribe(this.channelName, -1, toastCallback).then((response) => {
             // Response contains the subscription information on subscribe call
             console.log(
                 'Subscription request sent to: ',
                 JSON.stringify(response.channel)
             );
             this.subscription = response;
-            this.toggleSubscribeButton(true);
+            //c/bearLocationthis.toggleSubscribeButton(true);
+        });
+        onError(error => {
+            console.log('Error in Platform Event Toast');
+            console.log(error);
         });
     }
+
+    // Handles subscribe button click
+    // handleSubscribe() {
+    //     // Callback invoked whenever a new event message is received
+    //     const self = this; 
+    //     const messageCallback = function (response) {
+    //         //console.log('New message received: ', JSON.stringify(response.data));
+    //         //this.message = response.data.payload.message__c; 
+    //         console.log('message received: ', response.data.payload.message__c);
+    //         self.message = response.data.payload.message__c;
+    //         this.toastMessage = response.data.payload.message__c; 
+    //         //toastHandler(self.message);
+
+    //         // Response contains the payload of the new message received
+    //     };
+
+    // }
 
     // Handles unsubscribe button click
     handleUnsubscribe() {
@@ -84,6 +105,13 @@ export default class LwcEmpApiNotification extends LightningElement {
             variant: variant
         })
         this.dispatchEvent(evt)
+    }
+
+    disconnectedCallback() {
+        unsubscribe(this.subscription, response => {
+            console.log('Un-Subscribed from Platform Event Toast');
+            console.log(response);
+        });
     }
 
 
