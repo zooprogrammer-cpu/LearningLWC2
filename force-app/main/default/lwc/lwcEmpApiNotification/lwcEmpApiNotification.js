@@ -26,7 +26,7 @@ export default class LwcEmpApiNotification extends LightningElement {
             //toastData = self.toastData; 
             console.log('self.message: ', self.message);
             if (self.message){
-                self.showToast("Success",this.message,"success")
+                self.showToast("Success",self.message,"success")
             }
         }
         
