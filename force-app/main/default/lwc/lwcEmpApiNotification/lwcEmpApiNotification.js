@@ -24,15 +24,26 @@ export default class LwcEmpApiNotification extends LightningElement {
             //this.toastMessage = response.data.payload.message__c; 
             //self.toastData = response['data']['payload'];
             //toastData = self.toastData; 
+            console.log('self.message: ', self.message);
+            if (self.message){
+                self.showToast("Success",this.message,"success")
+            }
         }
+        
+    
+ 
         //this.showToast("Success",this.message,"success")
+        // if (self.message){
+        //     const toastEvent = new ShowToastEvent({
+        //         title : 'Success',
+        //         message: 'yesssss',
+        //         variant: 'success'
+        //     });
+        //     self.dispatchEvent(toastEvent);
 
-        const toastEvent = new ShowToastEvent({
-            title : 'Success',
-            message: 'yesssss',
-            variant: 'success'
-        });
-        self.dispatchEvent(toastEvent);
+        // }
+
+
         
         // Register error listener
         this.registerErrorListener();
