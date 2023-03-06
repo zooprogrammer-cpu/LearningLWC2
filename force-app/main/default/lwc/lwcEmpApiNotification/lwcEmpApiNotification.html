@@ -2,8 +2,9 @@
     <lightning-card title="EmpApi Notification Example" icon-name="custom:custom14">
         <div class="slds-m-around_medium">
             <p>
-                Use the buttons below to subscribe and unsubscribe to a
-                streaming channel!
+                Type this in apex anon-
+                empApiEvent__e event = new empApiEvent__e(message__c = 'Hello. this is cool.');
+                Database.SaveResult result = EventBus.publish(event);           
             </p>
             <lightning-input
                 label="Channel Name"
