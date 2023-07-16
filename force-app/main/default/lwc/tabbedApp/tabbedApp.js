@@ -2,6 +2,8 @@ import { LightningElement } from 'lwc';
 
 export default class TabbedApp extends LightningElement {
 
+    personObject = {}; 
+
     handleOpenTabOne(){
         console.log('Tab One Clicked');
         let tabOneTitle = this.template.querySelector('[title="Item One"]');
@@ -17,6 +19,13 @@ export default class TabbedApp extends LightningElement {
         tabTwo.classList.replace('slds-show', 'slds-hide');
         tabThree.classList.replace('slds-show', 'slds-hide');
 
+        this.personObject = {
+            firstName: "Ash",
+            lastName: "Basnyat"
+        }
+
+        console.log(this.personObject.firstName);
+        console.log(this.personObject.lastName);
     }
 
     handleOpenTabTwo(){
@@ -34,6 +43,13 @@ export default class TabbedApp extends LightningElement {
         tabTwo.classList.replace('slds-hide', 'slds-show');
         tabThree.classList.replace('slds-show', 'slds-hide');
 
+        this.personObject = {
+            firstName: "Brita",
+            lastName: "Basnyat"
+        }
+        console.log(this.personObject.firstName);
+        console.log(this.personObject.lastName);
+
     }
 
     handleOpenTabThree(){
@@ -50,6 +66,14 @@ export default class TabbedApp extends LightningElement {
         tabOne.classList.replace('slds-show', 'slds-hide');
         tabTwo.classList.replace('slds-show', 'slds-hide');
         tabThree.classList.replace('slds-hide', 'slds-show');
+
+        this.personObject = {
+            firstName: "Dug",
+            lastName: "Basnyat"
+        }
+
+        console.log(this.personObject.firstName);
+        console.log(this.personObject.lastName);
 
     }
 }
