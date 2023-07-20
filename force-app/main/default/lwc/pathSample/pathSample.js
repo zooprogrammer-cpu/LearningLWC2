@@ -1,6 +1,7 @@
 import { LightningElement } from 'lwc';
 
 export default class PathSample extends LightningElement {
+    currentStage ='Before Payment'; 
     stageNames = [
         { label: 'Created', value: 'step-1', dataId: 'Created', className: '' },
         { label: 'Before Payment', value: 'step-2', dataId: 'Tech_Before_Payment', className: '' },
@@ -12,8 +13,7 @@ export default class PathSample extends LightningElement {
         this.stageNames.forEach(el => {
             console.log(el.label);
         });
-        let currentStage = 'After Payment';
-        this.setCurrentStage(currentStage);
+        this.setCurrentStage(this.currentStage);
     }
 
     setCurrentStage(currentStage) {
@@ -26,6 +26,11 @@ export default class PathSample extends LightningElement {
                 this.stageNames[i].className = currentStageFound ? 'slds-path__item slds-is-incomplete' : 'slds-path__item slds-is-complete';
             }
         }
+    }
+
+    handleClick(e){
+        console.log('handleClick');
+        e.preventDefault();
     }
 
 }
