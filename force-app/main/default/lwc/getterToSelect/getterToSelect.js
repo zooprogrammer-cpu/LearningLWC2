@@ -1,16 +1,24 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, track } from 'lwc';
 
 export default class GetterToSelect extends LightningElement {
-    enteredValue = 'Enter some value' // default value
+    @track textValue
+    @track displayText =''; 
 
-    handleClick(event){
-        this.enteredValue = this.getValue;
-        console.log(this.enteredValue); // prints Ash Basnyat
+    handleTextChange(event){
+        this.textValue = event.target.value;
+        console.log(this.textValue); 
     }
 
-    handleClickClear(event){        
-        this.enteredValue = this.clearField; 
-        console.log(this.enteredValue); // Prints ''
+    handleDisplayText(){
+        this.displayText = this.textValue;
+        console.log('this.displayText', this.displayText);
+    }
+
+    handleClickClear(){        
+        this.textValue = this.clearField; 
+        this.displayText = this.clearField;
+        
+        console.log(this.textValue); // Prints ''
 
     }
 
@@ -18,7 +26,4 @@ export default class GetterToSelect extends LightningElement {
         return ''; // return '' to blank this field
     }
 
-    get getValue(){
-        return 'Ash Basnyat'
-    }
 }
