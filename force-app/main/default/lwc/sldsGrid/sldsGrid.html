@@ -1,13 +1,157 @@
 <template>
-    <lightning-card>
-        <div class="slds-grid slds-wrap">
-            <div class="slds-col">
-             <p>Main Content Goes Here</p>
+  <lightning-card title="SLDS Grid"> 
+    <div class="slds-container_large slds-container_center">
+        <div class="slds-grid_vertical">
+            <ul class="slds-col slds-list_horizontal slds-has-block-links_space slds-text-title_caps slds-border_bottom slds-var-m-bottom_medium">
+                <li>
+                  <a href="#">Home</a>
+                </li>
+                <li>
+                  <a href="#">Who are we?</a>
+                </li>
+                <li>
+                  <a href="#">Contact Us</a>
+                </li>
+            </ul>
+            <div class="slds-col slds-is-relative">
+                <img src={waveImage} alt="Wave User Photo" height="400px" width=100% />
+                <div class="slds-is-absolute" style="top:150px; left:50px; color: white; width:300px; font-size:2rem">
+                    Ash Consulting
+                    <p class="slds-text-heading_small slds-var-m-top_medium">
+                        For all your salesforce needs
+                    </p>
+                </div>
             </div>
-            <div class="slds-col">
-             <p>Sidebar Content Goes Here</p>
+            <div class="slds-col slds-is-relative">
+                <div class = "slds-var-m-vertical_medium slds-text-align_center">
+                    <h1 style="font-size: 2rem">Who Are We?</h1>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div class = "slds-col slds-var-p-around_medium slds-large-size_3-of-12 slds-medium-size_6-of-12 slds-medium-size_12-of-12" >
+                        <article class="slds-card">
+                            <div class="slds-grid slds-einstein-header slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+                            <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-utility-salesforce1">
+                            <svg class="slds-icon slds-icon_small slds-icon-text-default" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#salesforce1"></use>
+                            </svg>
+                            </span>
+                            </div>
+                            <div class="slds-media__body">
+                            <h2 class="slds-truncate" title="Product 1">
+                            <a href="#" class="slds-card__header-link" title="Product 1">
+                            <span class="slds-text-heading_small">Product 1</span>
+                            </a>
+                            </h2>
+                            </div>
+                            </div>
+                            <div class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"></div>
+                            </header>
+                            </div>
+                            <div class="slds-card__body slds-card__body_inner slds-line-clamp_small">
+                                Id in adipisicing cupidatat qui velit nulla magna ad ea mollit. Eu duis ad ut fugiat nisi excepteur tempor non reprehenderit tempor pariatur minim exercitation. Consequat culpa dolore adipisicing deserunt pariatur laboris aliqua do proident labore. Velit minim est adipisicing sit cillum voluptate do incididunt culpa. Irure eiusmod Lorem eiusmod occaecat Lorem magna duis Lorem.
+                            </div>
+                            </article>
+                    </div>
+                    <div class = "slds-col slds-var-p-around_medium slds-large-size_3-of-12 slds-medium-size_6-of-12 slds-medium-size_12-of-12" >
+                        <article class="slds-card">
+                            <div class="slds-grid slds-einstein-header slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+                            <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-utility-salesforce1">
+                            <svg class="slds-icon slds-icon_small slds-icon-text-default" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#salesforce1"></use>
+                            </svg>
+                            </span>
+                            </div>
+                            <div class="slds-media__body">
+                            <h2 class="slds-truncate" title="Product 1">
+                            <a href="#" class="slds-card__header-link" title="Product 1">
+                            <span class="slds-text-heading_small">Product 1</span>
+                            </a>
+                            </h2>
+                            </div>
+                            </div>
+                            <div class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"></div>
+                            </header>
+                            </div>
+                            <div class="slds-card__body slds-card__body_inner slds-line-clamp_small">
+                                Id in adipisicing cupidatat qui velit nulla magna ad ea mollit. Eu duis ad ut fugiat nisi excepteur tempor non reprehenderit tempor pariatur minim exercitation. Consequat culpa dolore adipisicing deserunt pariatur laboris aliqua do proident labore. Velit minim est adipisicing sit cillum voluptate do incididunt culpa. Irure eiusmod Lorem eiusmod occaecat Lorem magna duis Lorem.
+                            </div>
+                            </article>
+                    </div>
+                    <div class = "slds-col slds-var-p-around_medium slds-large-size_3-of-12 slds-medium-size_6-of-12 slds-medium-size_12-of-12" >
+                        <article class="slds-card">
+                            <div class="slds-grid slds-einstein-header slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+                            <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-utility-salesforce1">
+                            <svg class="slds-icon slds-icon_small slds-icon-text-default" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#salesforce1"></use>
+                            </svg>
+                            </span>
+                            </div>
+                            <div class="slds-media__body">
+                            <h2 class="slds-truncate" title="Product 1">
+                            <a href="#" class="slds-card__header-link" title="Product 1">
+                            <span class="slds-text-heading_small">Product 1</span>
+                            </a>
+                            </h2>
+                            </div>
+                            </div>
+                            <div class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"></div>
+                            </header>
+                            </div>
+                            <div class="slds-card__body slds-card__body_inner slds-line-clamp_small">
+                                Id in adipisicing cupidatat qui velit nulla magna ad ea mollit. Eu duis ad ut fugiat nisi excepteur tempor non reprehenderit tempor pariatur minim exercitation. Consequat culpa dolore adipisicing deserunt pariatur laboris aliqua do proident labore. Velit minim est adipisicing sit cillum voluptate do incididunt culpa. Irure eiusmod Lorem eiusmod occaecat Lorem magna duis Lorem.
+                            </div>
+                            </article>
+                    </div>
+                    <div class = "slds-col slds-var-p-around_medium slds-large-size_3-of-12 slds-medium-size_6-of-12 slds-medium-size_12-of-12" >
+                        <article class="slds-card">
+                            <div class="slds-grid slds-einstein-header slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-grid slds-grid_vertical-align-center slds-size_3-of-4 slds-medium-size_2-of-3">
+                            <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-utility-salesforce1">
+                            <svg class="slds-icon slds-icon_small slds-icon-text-default" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#salesforce1"></use>
+                            </svg>
+                            </span>
+                            </div>
+                            <div class="slds-media__body">
+                            <h2 class="slds-truncate" title="Product 1">
+                            <a href="#" class="slds-card__header-link" title="Product 1">
+                            <span class="slds-text-heading_small">Product 1</span>
+                            </a>
+                            </h2>
+                            </div>
+                            </div>
+                            <div class="slds-einstein-header__figure slds-size_1-of-4 slds-medium-size_1-of-3"></div>
+                            </header>
+                            </div>
+                            <div class="slds-card__body slds-card__body_inner slds-line-clamp_small">
+                                Id in adipisicing cupidatat qui velit nulla magna ad ea mollit. Eu duis ad ut fugiat nisi excepteur tempor non reprehenderit tempor pariatur minim exercitation. Consequat culpa dolore adipisicing deserunt pariatur laboris aliqua do proident labore. Velit minim est adipisicing sit cillum voluptate do incididunt culpa. Irure eiusmod Lorem eiusmod occaecat Lorem magna duis Lorem.
+                            </div>
+                            </article>
+                    </div>
+
+                </div>
+                <div class = "slds-var-m-vertical_medium slds-text-align_center">
+                    <h1 style="font-size: 2rem">Contact Us</h1>
+                </div>
+                <div class="slds-map_container">
+                    <div class="slds-map">
+                      <iframe id="GoogleMapID" title="Google Maps iframe" src="https://www.google.com/maps/embed/v1/place?q=1%20market%2C%20san%20francisco&amp;key=AIzaSyDliLquGXGts9S8YtkWVolSQEJdBL1ZuWc"></iframe>
+                    </div>
+                </div>
             </div>
+
         </div>
-    </lightning-card>
-    
+    </div>
+  </lightning-card>
 </template>
